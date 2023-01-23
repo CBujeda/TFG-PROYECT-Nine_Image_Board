@@ -6,8 +6,21 @@ chcp 1252
 @ECHO OFF
 cls
 echo.
-echo NINE
-echo IMAGE BOARD (%version%)
+echo.                          
+echo          ,--.                   
+echo        ,--.'^|   ,---,    ,---,. 
+echo    ,--,:  : ^|,`--.' ^|  ,'  .'  \
+echo ,`--.'`^|  ' :^|   :  :,---.' .' ^|
+echo ^|   :  :  ^| ^|:   ^|  '^|   ^|  ^|: ^|
+echo :   ^|   \ ^| :^|   :  ^|:   :  :  /
+echo ^|   : '  '; ^|'   '  ;:   ^|    ; 
+echo '   ' ;.    ;^|   ^|  ^|^|   :     \
+echo ^|   ^| ^| \   ^|'   :  ;^|   ^|   . ^|
+echo '   : ^|  ; .'^|   ^|  ''   :  '; ^|
+echo ^|   ^| '`--'  '   :  ^|^|   ^|  ^| ; 
+echo '   : ^|      ;   ^|.' ^|   :   /     
+echo ;   ^|.'      '---'   ^|   ^| ,'   		(v1.0.1)
+echo '---'                `----'     
 echo Power by Angular
 echo.
 ng serve
