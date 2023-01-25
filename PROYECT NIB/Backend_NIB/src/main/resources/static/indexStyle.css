@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.title {
+    color: white;
+}
+
+.ok {
+    color: greenyellow;
+    font-weight: bold;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+}
