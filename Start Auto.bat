@@ -1,8 +1,5 @@
-cd ./PROYECT NIB
-cd ./Backend_NIB
-title NINE IMAGE BOARD - BackendEnd 
-
-@ECHO OFF
+title starter
+@echo off
 cls
 echo.
 echo.                          
@@ -20,7 +17,8 @@ echo ^|   ^| '`--'  '   :  ^|^|   ^|  ^| ;
 echo '   : ^|      ;   ^|.' ^|   :   /     
 echo ;   ^|.'      '---'   ^|   ^| ,'   		(v1.0.1)
 echo '---'                `----'     
-echo 	Power by SpringBoot
-
-./mvnw spring-boot:run
-exit
+echo 	APP INIT
+echo.
+echo Iniciando servidores....
+start "" "./Start Backend.bat"
+start "" "./Start Front.bat"
