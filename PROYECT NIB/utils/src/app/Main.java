@@ -10,7 +10,9 @@ import java.util.Properties;
 import java.util.Scanner;
 
 public class Main {
-
+	
+	private static String _fCyan="[36m";
+	private static String _fBMag="[95m";
 	public static void main(String[] args) {
 
 		Properties prop = new Properties();
@@ -23,7 +25,7 @@ public class Main {
 			path_raiz = path_raiz + "\\" + fold[i];
 		}
 		System.out.println("Generando proyecto.. \n In >"+path_raiz);
-		File backprops = new File(path_raiz + "\\back.properties");
+		File backprops = new File(path_raiz + "\\PROYECT NIB\\Compiled\\back.properties");
 		File frontStart = new File(path_raiz + "\\Start Front.bat");
 		File backStart = new File(path_raiz + "\\Start Backend.bat");
 		File props = new File(path_raiz + "\\config.properties");
@@ -40,10 +42,10 @@ public class Main {
 					String MySql_bbdd = prop.getProperty("MySql_bbdd");
 					String MySql_user = prop.getProperty("MySql_user");
 					String MySql_pass = prop.getProperty("MySql_passs");
+					String NIB_B_Version = prop.getProperty("NIB_B_Version");
 					
 					String ngPath = prop.getProperty("ngPath");
 					String javaPath = prop.getProperty("javaPath");
-					System.out.println(ngPath);
 					// Default Values
 					if(ngPath == null) {ngPath = "ng";}
 					if(javaPath == null) {javaPath = "java";}
@@ -55,6 +57,7 @@ public class Main {
 					if(MySql_bbdd == null) {MySql_bbdd = "ninbooru";}
 					if(MySql_user == null) {MySql_user = "root";}
 					if(MySql_pass == null) {MySql_pass = "root";}
+					if(NIB_B_Version == null) {NIB_B_Version = "0.0.1-SNAPSHOT";}
 					
 					System.out.println("[GEN] back.properties");
 					String genPropBack = ""
@@ -107,13 +110,13 @@ public class Main {
 					foStart.close();
 					System.out.println("[GEN] Start Backend.bat");
 					String genStartBack = 
-							"cd ./PROYECT NIB\r\n"
-							+ "cd ./Backend_NIB\r\n"
+							"cd ./PROYECT NIB \r\n"
+							+ "cd ./Compiled \r\n"
 							+ "title NINE IMAGE BOARD - BackendEnd \r\n"
 							+ "\r\n"
 							+ "@ECHO OFF\r\n"
 							+ "cls\r\n"
-							+ "echo.\r\n"
+							+ "echo."+_fCyan+"\r\n"
 							+ "echo.                          \r\n"
 							+ "echo          ,--.                   \r\n"
 							+ "echo        ,--.'^|   ,---,    ,---,. \r\n"
@@ -129,12 +132,16 @@ public class Main {
 							+ "echo '   : ^|      ;   ^|.' ^|   :   /     \r\n"
 							+ "echo ;   ^|.'      '---'   ^|   ^| ,'   		(v1.0.1)\r\n"
 							+ "echo '---'                `----'     \r\n"
-							+ "echo 	Power by SpringBoot\r\n"
+							+ "echo 	Power by SpringBoot\r\n"+ "echo "+_fBMag+" \n"
 							+ "\r\n"
-							+ "./mvnw spring-boot:run\r\n"
+							+ "\""+javaPath+"\" -jar Backend_NIB-"+NIB_B_Version + ".jar --spring.config.location=back.properties"+"\n"
+							+ "pause > nul \n"
 							+ "exit";
 					
-					
+					Formatter fbStart = new Formatter(backStart);
+					fbStart.format(genStartBack);
+					fbStart.flush();
+					fbStart.close();
 					
 					
 				} catch (IOException e) {
