@@ -1,8 +1,10 @@
 # ***NINE IMAGE BOARD***
+
 <a href="#">
 <img src="assets/20230203_172532_Logo.png" width="200" height="200" /><br>
 </a>
 
+> [EN DESARROLLO]
 
 ## Requisitos Minimos:
 
@@ -12,7 +14,6 @@
 | Java                | 11 / 17 (Recomended) |
 | Node js             | v18.12.0             |
 | npm package manager | v8.19                |
-
 
 ## Uso e Instalación
 
@@ -26,8 +27,8 @@
 
 ## Soporte OS (Testado)
 
-* [x] Windows 11
-* [x] Windows 10
+* [X] Windows 11
+* [X] Windows 10
 * [ ] Windows 7
 * [ ] Ubuntu (Linux)
 * [ ] Devian (Linux)
