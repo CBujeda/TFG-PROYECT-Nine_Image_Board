@@ -1,7 +1,6 @@
 # ***NINE IMAGE BOARD***
 
-![](https://raw.githubusercontent.com/CBujeda/TFG-PROYECT-Nine_Image_Board/main/Sources/Logo.png?token=GHSAT0AAAAAAB2QN2APAPFEIHPZ5UPPMI2OY65GPUQ = 250x)
-
+<img src="https://raw.githubusercontent.com/CBujeda/TFG-PROYECT-Nine_Image_Board/main/Sources/Logo.png?token=GHSAT0AAAAAAB2QN2APAPFEIHPZ5UPPMI2OY65GPUQ" data-canonical-src="https://raw.githubusercontent.com/CBujeda/TFG-PROYECT-Nine_Image_Board/main/Sources/Logo.png?token=GHSAT0AAAAAAB2QN2APAPFEIHPZ5UPPMI2OY65GPUQ" width="200" height="200" /><br>
 Requisitos:
 
 
