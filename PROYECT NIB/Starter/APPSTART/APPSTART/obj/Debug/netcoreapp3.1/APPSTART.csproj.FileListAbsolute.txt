@@ -14,3 +14,8 @@ C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\APPSTART\obj
 C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\APPSTART\obj\Debug\netcoreapp3.1\APPSTART.dll
 C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\APPSTART\obj\Debug\netcoreapp3.1\APPSTART.pdb
 C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\APPSTART\obj\Debug\netcoreapp3.1\APPSTART.genruntimeconfig.cache
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\APPSTART\bin\Debug\netcoreapp3.1\es\APPSTART.resources.dll
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\APPSTART\obj\Debug\netcoreapp3.1\APPSTART.Form1.es.resources
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\APPSTART\obj\Debug\netcoreapp3.1\es\APPSTART.resources.dll
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\APPSTART\obj\Debug\netcoreapp3.1\APPSTART.Properties.Resources.resources
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\APPSTART\obj\Debug\netcoreapp3.1\APPSTART.CopnfigProperties.resources

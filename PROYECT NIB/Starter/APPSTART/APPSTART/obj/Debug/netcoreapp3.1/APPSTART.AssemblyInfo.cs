@@ -11,13 +11,16 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("APPSTART")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("CBujeda")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Clara Bujeda Muñoz")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("Launcher Grafico de NIB")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("APPSTART")]
+[assembly: System.Reflection.AssemblyProductAttribute("NIB Launcher")]
 [assembly: System.Reflection.AssemblyTitleAttribute("APPSTART")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/CBujeda/TFG-PROYECT-Nine_Image_Board")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 

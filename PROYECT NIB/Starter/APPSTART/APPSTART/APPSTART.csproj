@@ -4,6 +4,18 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <Copyright>Clara Bujeda Muñoz</Copyright>
+    <RepositoryUrl>https://github.com/CBujeda/TFG-PROYECT-Nine_Image_Board</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/CBujeda/TFG-PROYECT-Nine_Image_Board</PackageProjectUrl>
+    <PackageIcon></PackageIcon>
+    <PackageIconUrl />
+    <Description>Launcher Grafico de NIB</Description>
+    <Company>CBujeda</Company>
+    <Authors>Clara Bujeda Muñoz</Authors>
+    <Product>NIB Launcher</Product>
+    <PackageId>APPSTART</PackageId>
+    <RootNamespace>APPSTART</RootNamespace>
   </PropertyGroup>
 
 </Project>

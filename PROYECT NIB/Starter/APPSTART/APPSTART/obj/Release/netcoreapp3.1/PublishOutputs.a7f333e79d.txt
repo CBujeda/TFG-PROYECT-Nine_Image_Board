@@ -1,0 +1,6 @@
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\realses\APPSTART.exe
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\realses\APPSTART.dll
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\realses\APPSTART.deps.json
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\realses\APPSTART.runtimeconfig.json
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\realses\APPSTART.pdb
+C:\Users\USUARIO\Desktop\TFG - PROYECT\PROYECT NIB\Starter\APPSTART\realses\es\APPSTART.resources.dll
