@@ -1,10 +1,10 @@
 # ***NINE IMAGE BOARD***
+<a href="#">
+<img src="assets/20230203_172532_Logo.png" width="200" height="200" /><br>
+</a>
 
-<img src="assets/20230203_172532_Logo.png"   width="200" height="200" /><br>
 
-
-
-Requisitos:
+## Requisitos Minimos:
 
 
 |                     | Version              |
@@ -13,7 +13,6 @@ Requisitos:
 | Node js             | v18.12.0             |
 | npm package manager | v8.19                |
 
-Diagrama de programación
 
 ## Uso e Instalación
 
@@ -25,6 +24,11 @@ Diagrama de programación
 * En Linux
   * Pendiente
 
-Soporte
+## Soporte OS (Testado)
 
-* [X] Inicio de Servidor
+* [x] Windows 11
+* [x] Windows 10
+* [ ] Windows 7
+* [ ] Ubuntu (Linux)
+* [ ] Devian (Linux)
+* [ ] MacOS
