@@ -26,8 +26,8 @@ echo Generando Resources....
 cd ./PROYECT NIB/Compiled
 java -jar NIB_CONFIGURATOR.jar
 cd ../..
-::echo Iniciando servidores....
-::start "" "./Start Backend.bat"
-::start "" "./Start Front.bat"
+echo Iniciando servidores....
+start "" "./Start Backend.bat"
+start "" "./Start Front.bat"
 pause
 exit
