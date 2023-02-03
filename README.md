@@ -1,5 +1,6 @@
-# ***NINE IMAGE BOARD*** 
-<img src="https://github.com/CBujeda/TFG-PROYECT-Nine_Image_Board/blob/main/Sources/Logo.png" width="128"/>
+# ***NINE IMAGE BOARD***
+
+![](https://raw.githubusercontent.com/CBujeda/TFG-PROYECT-Nine_Image_Board/main/Sources/Logo.png?token=GHSAT0AAAAAAB2QN2APAPFEIHPZ5UPPMI2OY65GPUQ = 250x)
 
 Requisitos:
 
@@ -21,7 +22,6 @@ Diagrama de programación
     >
 * En Linux
   * Pendiente
-
 
 Soporte
 
