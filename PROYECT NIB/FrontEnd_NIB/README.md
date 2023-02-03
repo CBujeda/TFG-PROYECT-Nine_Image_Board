@@ -10,7 +10,7 @@ This project based on [Angular CLI](https://github.com/angular/angular-cli) vers
 
 ## Development server
 
-Run `ng serve --port 8080` for a dev server. Navigate to `http://localhost:8080/`. The application will automatically reload if you change any of the source files.
+Run `ng serve --port 8080` for a dev server. Navigate to `http://localhost:8080/`. 
 
 <!---
 ## Code scaffolding
