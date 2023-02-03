@@ -1,4 +1,5 @@
-# ***NINE IMAGE BOARD***
+# ***NINE IMAGE BOARD*** 
+<img src="https://github.com/CBujeda/TFG-PROYECT-Nine_Image_Board/blob/main/Sources/Logo.png" width="128"/>
 
 Requisitos:
 
