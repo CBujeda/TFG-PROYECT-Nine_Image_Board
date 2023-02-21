@@ -11,7 +11,7 @@
 
 |                     | Version              |
 | --------------------- | ---------------------- |
-| Java                | 11 / 17 (Recomended) |
+| Java                | 17 (Recomended)      |
 | Node js             | v18.12.0             |
 | npm package manager | v8.19                |
 
