@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.nib.app.model.entity.user.Usuario;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +34,8 @@ public class Post implements Serializable{
 	private String img_name;
 	private String extension;
 	private Date date;
+	
+	//@JsonBackReference
 	@ManyToOne
     @JoinColumn(name = "id_usuario") // creamos la columna de tipo objeto con joinColumn
     private Usuario usuario;
