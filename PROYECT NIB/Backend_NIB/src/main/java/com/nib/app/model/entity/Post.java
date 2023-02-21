@@ -47,7 +47,7 @@ public class Post implements Serializable{
   		  inverseJoinColumns = @JoinColumn(name = "id_type"))
 	
 	//@JoinColumn(name = "id_type") // creamos la columna de tipo objeto con joinColumn
-	private Set<Tag> typelist;
+	private Set<Type> typelist;
     
     @ManyToMany
     @JoinTable(
@@ -58,7 +58,12 @@ public class Post implements Serializable{
     //@JoinColumn(name = "tags")
     private Set<Tag> taglist;
 
-	public Post(Long id_post, String img_name, String extension, Date date, Usuario usuario, Set<Tag> typelist,
+	public Post() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Post(Long id_post, String img_name, String extension, Date date, Usuario usuario, Set<Type> typelist,
 			Set<Tag> taglist) {
 		super();
 		this.id_post = id_post;
@@ -68,11 +73,6 @@ public class Post implements Serializable{
 		this.usuario = usuario;
 		this.typelist = typelist;
 		this.taglist = taglist;
-	}
-
-	public Post() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getId_post() {
@@ -115,11 +115,11 @@ public class Post implements Serializable{
 		this.usuario = usuario;
 	}
 
-	public Set<Tag> getTypelist() {
+	public Set<Type> getTypelist() {
 		return typelist;
 	}
 
-	public void setTypelist(Set<Tag> typelist) {
+	public void setTypelist(Set<Type> typelist) {
 		this.typelist = typelist;
 	}
 
@@ -134,6 +134,6 @@ public class Post implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-    
 
+	
 }
