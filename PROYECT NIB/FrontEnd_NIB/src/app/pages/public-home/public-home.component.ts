@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-public-home',
@@ -9,11 +10,16 @@ export class PublicHomeComponent {
 
   animatedPlaceholder = '';
   predictedList: String[] = [];
-  constructor() {
+
+
+
+
+  constructor(
+    public translate: TranslateService
+  ) {
     this.placeholderAnimator();
-    this.addWord("hola");
-    this.addWord("Que tal?");
-    this.addWord("Estas?");
+
+
   }
 
 

@@ -5,11 +5,12 @@
         </div>
 
         <div class="d-flex">
-            <div>
-                <a>Idiom</a>
+             <div>
+              <app-switch-lang></app-switch-lang>
 
             </div>
         </div>
+
     </div>
 </nav>
 
@@ -40,20 +41,24 @@
                                 <a class="nav-link" href="#">Posts</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/login">Login</a>
+                                <a class="nav-link" href="/login">{{'LOGIN'|translate}}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/signup">Register</a>
+                                <a class="nav-link" href="/signup">{{'REGISTER'|translate}}</a>
                             </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/tags">Tags</a>
+                          </li>
                         </ul>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-xxl-8 col-xl-8 col-lg-8 col-sm-12">
+
                             <form>
                                 <div class="input-group mb-0">
                                     <input type="text" class="form-control" name="searchdata" id="searchdata"
                                         [placeholder]="animatedPlaceholder" (change)="onChangeValue('')">
-                                    <button class="btn btn-outline-secondary" type="button">Buscar</button>
+                                    <button class="btn btn-outline-secondary" type="button"><span>{{'SEARCH'|translate}}</span></button>
                                 </div>
                                 <div class="input-group mb-3">
                                     <ul class="list-group ms-2">
