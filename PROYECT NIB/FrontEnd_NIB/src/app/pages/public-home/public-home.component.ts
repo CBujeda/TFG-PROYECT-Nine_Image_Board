@@ -11,21 +11,31 @@ export class PublicHomeComponent {
   animatedPlaceholder = '';
   predictedList: String[] = [];
 
-
-
+  public contList: String[] = [];
+  public contbasepath ="../../../assets/contador/"
+  public numberCont = 0;
 
   constructor(
     public translate: TranslateService
   ) {
+    this.setConList();
     this.placeholderAnimator();
 
+  }
 
+  private setConList(){
+    let numbers = String(this.numberCont);
+    for(let i = 0; i < numbers.length;i++){
+      this.contList.push(numbers[i]+".gif")
+    }
   }
 
 
   public onChangeValue(event: String){
 
   }
+
+
 
   private addWord(wordPredict:String) {
     this.predictedList.push(""
