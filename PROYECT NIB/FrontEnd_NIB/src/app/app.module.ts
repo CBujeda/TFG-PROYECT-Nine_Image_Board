@@ -17,12 +17,15 @@ import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-
 import { TagsComponent } from './pages/tags/tags.component';
 import { formatCurrency } from '@angular/common';
 import { SwitchLangComponent } from './components/switch-lang/switch-lang.component';
+import { PostsComponent } from './pages/posts/posts.component';
+import { NabarPostsComponent } from './components/nabar-posts/nabar-posts.component';
 
 
 
 
 const appRoutes:Routes = [
   {path:"",component:PublicHomeComponent},
+  {path:"posts",component:PostsComponent},
  {path:"login",component:LoginComponent},
  {path:"signup",component:SignupComponent},
  {path:"terms-and-conditions",component:TermsAndConditionsComponent},
@@ -39,6 +42,8 @@ const appRoutes:Routes = [
     TermsAndConditionsComponent,
     TagsComponent,
     SwitchLangComponent,
+    PostsComponent,
+    NabarPostsComponent,
   ],
   imports: [
     BrowserModule,

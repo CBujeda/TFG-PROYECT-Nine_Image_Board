@@ -1,0 +1,46 @@
+<app-nabar-posts></app-nabar-posts>
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-3" style="min-height: calc( 100vh - 56px) ;background-color: '#c7e6ff'; ">
+      <div class="row">
+        <div class="col-12">
+          <div class="row justify-content-center mt-3">
+            <div class="col-8">
+              <img src="../../../assets/nib_logo_cutted.png" class="img-fluid border border-5 border-dark">
+            </div>
+
+            <div class="col-9 mt-2">
+              <form>
+                <div class="input-group mb-0 mt-0 p-0">
+                  <input type="text" class="form-control pt-1 pb-1" name="searchdata" id="searchdata">
+                  <button class="btn btn-dark pt-1 pb-1" type="button"><span>{{'SEARCH'|translate}}</span></button>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-11 mt-5">
+              <a>aa</a><br>
+              <a>aa</a>
+            </div>
+          </div>
+          <!----->
+        </div>
+      </div>
+    </div>
+    <div class="col-9 bg-light">
+      <div class="row">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-2 ps-2 pe-2 mt-2 text-center" *ngFor="let d of posts">
+              <a href="">
+                <img src="../../../assets/icon.jpg" class="img-fluid border border-1 border-dark">
+              </a>
+              <p><span>titulo</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { CommonvarsService } from 'src/app/services/commonvars.service';
 
 @Component({
   selector: 'app-switch-lang',
@@ -8,15 +9,34 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class SwitchLangComponent {
 
-  constructor(public translate: TranslateService){}
+  constructor(public translate: TranslateService,private vars:CommonvarsService){
+
+  }
+
+  public selected: String = "";
 
   switchLang = (lang: string) => {
     this.translate.use(lang);
-    console.log(this.translate.currentLang);
+    this.vars.setLang(lang);
+    this.setSelected();
+    console.log(this.selected);
+
+    //console.log(this.vars.getLang());
+   // console.log(this.translate.currentLang);
   }
 
   ngOnInit(){
-    console.log(this.translate.currentLang);
+    this.setSelected();
 
   }
+
+  setSelected(){
+    let la = this.vars.getLang();
+    if(la ===""){
+      this.selected  = "00";
+    }else{
+      this.selected = la;
+    }
+  }
+
 }
