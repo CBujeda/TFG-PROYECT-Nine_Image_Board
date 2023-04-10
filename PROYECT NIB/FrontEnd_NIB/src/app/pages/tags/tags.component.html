@@ -1,1 +1,44 @@
 <app-navbar></app-navbar>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <table class="table  table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tag</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of tagsTable;let p = index">
+            <th scope="row">{{p}}</th>
+            <td><a href="/search/{{i}}">{{i}}</a></td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+    <div class="col-md-12 col-md-6 col-lg-6">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="row  justify-content-center">
+        <div class="col-6">
+          <div class="row  justify-content-center">
+            <div class="col-1" *ngFor="let n of numSequence(totalPages); let i = index;">
+              <a class="btn btn-outline-secondary" (click)="goPage(i)"> {{i+1}} </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
