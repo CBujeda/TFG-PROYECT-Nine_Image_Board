@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.nib.app.model.entity.Config;
@@ -23,7 +24,6 @@ public class PublicConf {
 	@GetMapping("/name")
 	public ResponseEntity<String> getName() {
 		try {
-			
 			String name = "Nine Image Board";
 			Config conf = confserv.getConfbyConf("app_name");
 			if(conf != null) {
@@ -34,4 +34,19 @@ public class PublicConf {
 			return new ResponseEntity<>("", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@GetMapping("/get")
+	public ResponseEntity<String> getConf(@RequestParam(defaultValue = "app_name") String type) {
+		try {
+			String conf_String = "ERR://GET:CONF";
+			Config conf = confserv.getConfbyConf(type);
+			if(conf != null) {
+				conf_String = conf.getValue();
+			}
+			return new ResponseEntity<>("\""+conf_String+"\"", HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>("", HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
 }
