@@ -9,9 +9,9 @@ export class ConfAPPService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getNameAPP(){
+  public getNameAPP(type: string){
     let apiNameApp = "http://"+backserv.ipnibbackserver+":"+backserv.portnibbackserver
-                    +"/api/public/conf/name";
+                    +"/api/public/conf/get?"+`type=${type}`;
     return this.httpClient.get<any>(apiNameApp);
   }
 }
