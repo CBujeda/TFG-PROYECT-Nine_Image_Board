@@ -42,13 +42,11 @@ public class BackendNibApplication implements CommandLineRunner {
 		if(confserv.getCont() == 0) {
 			printInfo("Updating configuration");
 			confserv.addConf(new Config("app_name","Nine Image Board"));
+			confserv.addConf(new Config("app_short_name","NIB"));
 		}
-		
-		
 		String username = "ADMIN";
 		Usuario usuario = new Usuario();
 		usuario.setUsername("ADMIN");
-
 		printInfo("Verifying Users");
 		if(!usuarioService.isExistsUsernameByUsername(usuario)) {
 			printInfo("Creating user ADMIN...");
@@ -56,7 +54,6 @@ public class BackendNibApplication implements CommandLineRunner {
 			r.setId_rol(1L);
 			r.setNombre("ADMIN"); 		
 			addRol(r);
-			
 			Rol r2 = new Rol();
 			r2.setId_rol(2L);
 			r2.setNombre("USER"); 
