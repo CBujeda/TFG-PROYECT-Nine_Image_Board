@@ -50,7 +50,7 @@ export class PublicHomeComponent {
   }
 
   public setNameApp(){
-    this.confappsevice.getNameAPP().subscribe(
+    this.confappsevice.getNameAPP("app_name").subscribe(
       data => {
         console.log(data)
         let nombre = String(data);
