@@ -19,17 +19,25 @@ import { formatCurrency } from '@angular/common';
 import { SwitchLangComponent } from './components/switch-lang/switch-lang.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { NabarPostsComponent } from './components/nabar-posts/nabar-posts.component';
+import { PostcontainerComponent } from './pages/postcontainer/postcontainer.component';
+import { NoFoundComponent } from './pages/system/no-found/no-found.component';
+import { CreatebyComponent } from './pages/system/createby/createby.component';
+import { NavbarStaticPageComponent } from './components/navbar-static-page/navbar-static-page.component';
 
 
 
 
 const appRoutes:Routes = [
   {path:"",component:PublicHomeComponent},
-  {path:"posts",component:PostsComponent},
+  {path:"posts",component:PostcontainerComponent},
  {path:"login",component:LoginComponent},
  {path:"signup",component:SignupComponent},
  {path:"terms-and-conditions",component:TermsAndConditionsComponent},
- {path:"tags",component:TagsComponent}
+ {path:"tags",component:TagsComponent},
+
+//SPECIAL
+ {path:"creadoradenibsuperkawaiipage",component:CreatebyComponent},
+ {path:"**",pathMatch:"full",component:NoFoundComponent}
 ]
 
 @NgModule({
@@ -44,6 +52,10 @@ const appRoutes:Routes = [
     SwitchLangComponent,
     PostsComponent,
     NabarPostsComponent,
+    PostcontainerComponent,
+    NoFoundComponent,
+    CreatebyComponent,
+    NavbarStaticPageComponent,
   ],
   imports: [
     BrowserModule,
