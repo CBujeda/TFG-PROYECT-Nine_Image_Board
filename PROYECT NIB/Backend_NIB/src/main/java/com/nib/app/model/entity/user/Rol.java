@@ -74,6 +74,11 @@ public class Rol implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	@Override
+	public String toString() {
+		return "Rol [id_rol=" + id_rol + ", nombre=" + nombre + ", userlist=" + userlist + "]";
+	}
 	
 	
 }
