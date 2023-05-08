@@ -1,9 +1,11 @@
 package com.nib.app.controllers.api.usuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,9 +15,11 @@ import com.nib.app.model.entity.user.Rol;
 import com.nib.app.model.entity.user.Usuario;
 import com.nib.app.model.service.RolService;
 import com.nib.app.model.service.UsuarioService;
+import com.nib.app.objects.PO;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/users")	
+@CrossOrigin(origins = {"*"},methods= {RequestMethod.GET,RequestMethod.POST})	
 public class UsuarioController {
 
 	@Autowired
@@ -25,12 +29,16 @@ public class UsuarioController {
 	private RolService rolService;
 	
 	
-	@GetMapping("/get/{username}")
-	public Usuario getUser(@PathVariable("username") String username) {
-		Usuario tmp = usuarioService.findByUsername(username);
+	@PostMapping("/get")
+	public Usuario getUser(@RequestBody PO token) {
+		System.out.println("Entra usuario");
+		Usuario tmp = usuarioService.findUsernameByToken(token.getToken());
+		tmp.setPassword(null);
+		tmp.setToken(null);
+	
 		return tmp;
 	}
-	
+	/*
 	@DeleteMapping("/delete_{userID}")
 	public boolean deleteUser(@PathVariable("userID") String userID) {
 		long id = -1L;
@@ -45,7 +53,7 @@ public class UsuarioController {
 		}
 		return tmp;
 	}
-	
+	*/
 	@RequestMapping(value = "/userAdd", method = RequestMethod.POST)
 	public Usuario saveNewUser(@RequestBody Usuario usuario){//@RequestBody Usuario usuario) {
 		
