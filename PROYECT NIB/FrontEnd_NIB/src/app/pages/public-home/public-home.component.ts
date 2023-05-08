@@ -80,6 +80,7 @@ export class PublicHomeComponent {
     let uCont = "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/public/tags/random10"
     const response = await axios.get(uCont);
     let array = await response.data;
+    console.log(array)
     if(array.length > 0){
       for(let i = 0; i < array.length; i ++){
         console.log(array[i].name)
@@ -88,6 +89,7 @@ export class PublicHomeComponent {
       }
     }
     while (true) {
+      if(array.length == 0) {break;}
       for (let i = 0; i < this.recomendedList.length; i++) {
         let tempHolder = "";
         for (let x = 0; x < this.recomendedList[i].length; x++) {
