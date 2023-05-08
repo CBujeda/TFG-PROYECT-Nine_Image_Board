@@ -23,9 +23,15 @@ import { PostcontainerComponent } from './pages/postcontainer/postcontainer.comp
 import { NoFoundComponent } from './pages/system/no-found/no-found.component';
 import { CreatebyComponent } from './pages/system/createby/createby.component';
 import { NavbarStaticPageComponent } from './components/navbar-static-page/navbar-static-page.component';
+import { FormsModule } from '@angular/forms';
+import { UserProfileComponent } from './private/pages/user-profile/user-profile.component';
+import { UnautorizedComponent } from './pages/unautorized/unautorized.component';
+import { PrivateHomeComponent } from './private/pages/private-home/private-home.component';
+import { PrivateNavComponent } from './private/components/private-nav/private-nav.component';
+import { PrivatePostsComponent } from './private/pages/private-posts/private-posts.component';
+import { UploadComponent } from './private/pages/upload/upload.component';
 
-
-
+const priv = "private/"
 
 const appRoutes:Routes = [
   {path:"",component:PublicHomeComponent},
@@ -35,9 +41,17 @@ const appRoutes:Routes = [
  {path:"terms-and-conditions",component:TermsAndConditionsComponent},
  {path:"tags",component:TagsComponent},
 
+ //private
+ {path:priv+"userprofile",component:UserProfileComponent},
+ {path:priv+"home",component:PrivateHomeComponent},
+ {path:priv+"posts",component:PrivatePostsComponent },
+ {path:priv+"upload",component:UploadComponent },
+
 //SPECIAL
  {path:"creadoradenibsuperkawaiipage",component:CreatebyComponent},
- {path:"**",pathMatch:"full",component:NoFoundComponent}
+ {path:"unautorized",component:UnautorizedComponent},
+ {path:"**",pathMatch:"full",component:NoFoundComponent},
+
 ]
 
 @NgModule({
@@ -56,11 +70,18 @@ const appRoutes:Routes = [
     NoFoundComponent,
     CreatebyComponent,
     NavbarStaticPageComponent,
+    UserProfileComponent,
+    UnautorizedComponent,
+    PrivateHomeComponent,
+    PrivateNavComponent,
+    PrivatePostsComponent,
+    UploadComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
