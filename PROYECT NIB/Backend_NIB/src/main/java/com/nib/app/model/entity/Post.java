@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.nib.app.model.entity.user.Usuario;
 
 import jakarta.persistence.Column;
@@ -39,7 +40,7 @@ public class Post implements Serializable{
 	@ManyToOne
     @JoinColumn(name = "id_usuario") // creamos la columna de tipo objeto con joinColumn
     private Usuario usuario;
-	
+	@JsonIgnore
 	@ManyToMany
     @JoinTable(
   		  name = "post_NN_type", 
@@ -49,6 +50,7 @@ public class Post implements Serializable{
 	//@JoinColumn(name = "id_type") // creamos la columna de tipo objeto con joinColumn
 	private Set<Type> typelist;
     
+	@JsonIgnore
     @ManyToMany
     @JoinTable(
     		  name = "post_NN_tag", 
