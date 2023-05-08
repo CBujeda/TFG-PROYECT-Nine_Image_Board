@@ -1,0 +1,43 @@
+<app-private-nav></app-private-nav>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Upload</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-sm-12 border border-1 ">
+      <div class="row">
+        <div class="col-6">
+          <div class="card mt-1 mb-1">
+            <img [src]="imageUrl" *ngIf="imageUrl" class="card-img-top">
+            <div class="card-body">
+              <div class="input-group mb-3">
+                <input accept=".png,.jpg" type="file" (change)="onFileSelected($event)" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 pt-3">
+          <div>
+            <input type="text" [(ngModel)]="titulo" placeholder="Titulo" class="form-control" required>
+          </div>
+          <div class="form-floating mt-3">
+            <textarea class="form-control"  [(ngModel)]="tags" style="height: 150px" required></textarea>
+            <label >Tags</label>
+          </div>
+          <div class="border border-1 p-1 mt-2">
+            <p>
+              Las tags deberan de ser escritas separdas por comas y sin espacios. Ejemplo: Girl,Big_eyes
+            </p>
+          </div>
+          <a class="btn btn-outline-secondary mt-2 mb-2" (click)="onUpload()">Send Post</a>
+        </div>
+        <p style="color: red;">
+          {{errmsg}}
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
