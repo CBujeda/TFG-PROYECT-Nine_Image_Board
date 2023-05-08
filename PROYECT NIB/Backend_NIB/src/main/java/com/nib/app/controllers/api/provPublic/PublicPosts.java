@@ -53,8 +53,8 @@ public class PublicPosts {
 				posts = post_serv.getPaginasPosts(
 						PageRequest.of(page, size, Sort.by(order).descending()));
 			}
-			
 			return new ResponseEntity<>(posts, HttpStatus.OK);
+			
 		} catch (Exception e) {
 			return new ResponseEntity<>(posts, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
