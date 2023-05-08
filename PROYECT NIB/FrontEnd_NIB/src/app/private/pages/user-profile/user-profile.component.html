@@ -1,0 +1,100 @@
+<app-private-nav></app-private-nav>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10">
+      <div class="row">
+        <div class="col-6">
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <div class="card">
+                <img src="{{imageProfileDisplay}}" class="card-img-top" alt="...">
+                <input type="text" name="image" value="{{image}}" class="form-control rounded-0 rounded-bottom">
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-6">
+          <h3>User Info</h3>
+          <div class="row">
+            <div class="col-12">
+              <div class="row">
+                <div class="col-6">
+                  <!------------>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" value="{{username}}" class="form-control" disabled readonly>
+                      </div>
+                    </div>
+                  </div>
+                  <!------------>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="text" value="{{email}}" class="form-control" disabled readonly>
+                      </div>
+                    </div>
+                  </div>
+                  <!------------>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" placeholder="Change Password" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------>
+                </div>
+                <div class="col-6">
+                    <!------------>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" value="{{nombre}}" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-3">
+                        <label class="form-label">Apellidos</label>
+                        <input type="text" value="{{apellido}}" class="form-control">
+                      </div>
+                    </div>
+                  </div>
+                  <!------------>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="mb-3">
+                        <label class="form-label">Token <span class="text-danger"> (Not enabled)</span></label>
+                        <textarea class="form-control" rows="3" disabled>NIB_TK</textarea>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <a class="btn btn-outline-secondary">Update</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
