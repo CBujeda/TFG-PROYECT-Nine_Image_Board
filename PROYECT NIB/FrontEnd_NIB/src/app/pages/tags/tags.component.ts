@@ -15,11 +15,11 @@ export class TagsComponent {
   public tagsTable: String [] = []
 
   constructor(private tagsService: TagsService) {
-
+    /*
     this.cargarTags();
     for(let i = 0; i < this.tagsTable.length; i++){
       console.log(this.tagsTable[i]);
-    }
+    }*/
   }
 
 
