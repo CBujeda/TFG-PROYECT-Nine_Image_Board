@@ -19,5 +19,11 @@ public interface UsuarioService {
 	
 	public boolean deleteUser(Usuario usuario);
 	public boolean deleteUserById(Long id);
+	
+	public String login(Usuario usuario);
+	
+	public Usuario findUsernameByToken(String token);
+	
+	public boolean verifyToken(String token);
 }
 
