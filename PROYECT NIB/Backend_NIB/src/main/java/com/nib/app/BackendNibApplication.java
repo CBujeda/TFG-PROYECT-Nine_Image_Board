@@ -15,6 +15,7 @@ import com.nib.app.model.entity.user.Usuario;
 import com.nib.app.model.service.ConfService;
 import com.nib.app.model.service.RolService;
 import com.nib.app.model.service.UsuarioService;
+import com.nib.app.utils.NIBShell;
 
 import jakarta.transaction.Transactional;
 
@@ -60,7 +61,7 @@ public class BackendNibApplication implements CommandLineRunner {
 			addRol(r2);
 			usuario.setNombre("Admin");
 			usuario.setApellido("Admin");
-			usuario.setPassword("root");
+			usuario.setPassword("ADMIN");
 			usuario.setEmail("admin@admin.com");
 			usuario.setImgProfile("image.png");
 			usuario.getRoleslist().add(rolService.findByName(r));
@@ -76,11 +77,14 @@ public class BackendNibApplication implements CommandLineRunner {
 	}
 	
 	public void printInfo(String str) {
+		new NIBShell().printInfo(str);
+		/*
 	    String YELLOW_BOLD = "\033[1;33m"; // YELLOW
 	    String PURPLE_BOLD = "\033[1;35m"; // PURPLE
 	    String RESET = "\033[0m"; // RESET
 	    String date = java.time.Clock.systemUTC().instant().toString();
 		System.out.println(date.substring(0, date.length()-1)+"  "+YELLOW_BOLD+"[NIB] "+PURPLE_BOLD+"    --- "+RESET + str);
+		*/
 	}
 
 }
