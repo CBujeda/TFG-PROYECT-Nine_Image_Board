@@ -40,6 +40,8 @@ public class Usuario implements Serializable {
 	private String password;
 	private boolean verify = true;
 	private String imgProfile;
+	private String token;
+	
 	
 	//@JsonManagedReference
 	@JsonIgnore
@@ -194,9 +196,12 @@ public class Usuario implements Serializable {
 				+ imgProfile + ", postList:" + postList + ", roleslist:" + roleslist + "]";
 	}
 
+	public String getToken() {
+		return token;
+	}
+	
+	public void setToken(String token) {
+		this.token = token;
+	}
 
-
-	
-	
-	
 }
