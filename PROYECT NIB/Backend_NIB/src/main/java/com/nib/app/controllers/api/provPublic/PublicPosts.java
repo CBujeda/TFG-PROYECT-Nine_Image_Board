@@ -59,4 +59,29 @@ public class PublicPosts {
 			return new ResponseEntity<>(posts, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	
+	@GetMapping("/postsfiterbytag")
+	public ResponseEntity<Page<Post>> getPostsByTag( 
+												@RequestParam(defaultValue = "0") int page,
+												@RequestParam(defaultValue = "10") int size,
+												@RequestParam(defaultValue = "date") String order,
+												@RequestParam(defaultValue = "false") boolean asc,
+												@RequestParam(defaultValue = "") String tag) {
+		Page<Post> posts = null;
+		try {
+			
+			if(asc) {
+				posts = post_serv.getPaginasToPostsByTag(
+						PageRequest.of(page, size, Sort.by(order)),tag);
+			}else {
+				posts = post_serv.getPaginasToPostsByTag(
+						PageRequest.of(page, size, Sort.by(order).descending()),tag);
+			}
+			return new ResponseEntity<>(posts, HttpStatus.OK);
+			
+		} catch (Exception e) {
+			return new ResponseEntity<>(posts, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 }

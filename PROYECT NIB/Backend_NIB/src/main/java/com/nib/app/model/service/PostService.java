@@ -18,4 +18,6 @@ public interface PostService {
 	public Post savePostDatBBDD(Post post);
 	
 	public BinaryFile getImageById_Post(Long id);
+	
+	public Page<Post> getPaginasToPostsByTag(Pageable pageable, String tag);
 }

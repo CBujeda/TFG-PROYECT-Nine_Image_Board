@@ -37,9 +37,11 @@ public class Post implements Serializable{
 	private Date date;
 	
 	//@JsonBackReference
+	@JsonIgnore
 	@ManyToOne
     @JoinColumn(name = "id_usuario") // creamos la columna de tipo objeto con joinColumn
     private Usuario usuario;
+	
 	@JsonIgnore
 	@ManyToMany
     @JoinTable(

@@ -17,10 +17,15 @@
                 </div>
               </form>
             </div>
-
-            <div class="col-11 mt-5">
-              <a>aa</a><br>
-              <a>aa</a>
+            <div class="col-11 mt-2">
+              <p><b>Tags</b></p>
+              <div *ngFor="let t of tags">
+                <a   style="
+                color: rgb(217, 109, 145);
+                text-shadow: 1px 1px #000000;
+                cursor: pointer;
+                ">+{{t}}</a>
+              </div>
             </div>
           </div>
           <!----->

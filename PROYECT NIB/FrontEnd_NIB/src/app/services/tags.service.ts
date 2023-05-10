@@ -15,4 +15,10 @@ export class TagsService {
                     +"/api/public/tags/tagsLimited?";
       return this.httpClient.get<any>(apiPostsPageURL + `size=${size}&page=${page}&order=${order}&asc=${asc}`)
   }
+
+  public tagsRandom(){
+    let apiPostsPageURL = "http://"+backserv.ipnibbackserver+":"+backserv.portnibbackserver
+                  +"/api/public/tags/random10";
+    return this.httpClient.get<any>(apiPostsPageURL)
+}
 }

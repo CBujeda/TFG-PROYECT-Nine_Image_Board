@@ -17,6 +17,12 @@ export class PostsService {
     return this.httpClient.get<any>(apiPostsPageURL + `size=${size}&page=${page}&order=${order}&asc=${asc}`)
   }
 
+  public postsPagesByTag(page:number,size:number,order:string, asc: boolean,tag:string){
+    let apiPostsPageURL = "http://"+backserv.ipnibbackserver+":"+backserv.portnibbackserver
+                  +"/api/public/posts/postsfiterbytag?";
+    return this.httpClient.get<any>(apiPostsPageURL + `size=${size}&page=${page}&order=${order}&asc=${asc}&tag=${tag}`)
+  }
+
   public getContPosts(){
     let apiPostsCont = "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/public/posts/count";
     return this.httpClient.get<any>(apiPostsCont)

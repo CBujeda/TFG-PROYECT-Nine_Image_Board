@@ -4,10 +4,12 @@ import java.sql.SQLException;
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -69,12 +71,13 @@ public class PostServiceImpl implements PostService {
 							if(tg != null) {
 								ps.getTaglist().add(tg);
 							}else {
-								Tag ntag = new Tag();
-								ntag.setName(tag);
-								Tag stag = tag_service.saveTag(ntag);
-								if(stag != null) {
-									System.out.println("entra en stag != null");
-									ps.getTaglist().add(stag);
+								if(tag != "") {	// Evitamos crear un tag sin nada
+									Tag ntag = new Tag();
+									ntag.setName(tag);
+									Tag stag = tag_service.saveTag(ntag);
+									if(stag != null) {//entra en stag != null
+										ps.getTaglist().add(stag);
+									}
 								}
 							}
 						}
@@ -146,6 +149,13 @@ public class PostServiceImpl implements PostService {
 		}else {
 			return null;
 		}
+	}
+
+	@Override
+	public Page<Post> getPaginasToPostsByTag(Pageable pageable, String tag) {
+		List<Post> posts =  post_dao.findPostsByTag(tag);
+		Page<Post> pages = new PageImpl<Post>(posts, pageable, posts.size());
+		return pages;
 	}
 	
 	
