@@ -70,7 +70,6 @@ public class PublicPosts {
 												@RequestParam(defaultValue = "") String tag) {
 		Page<Post> posts = null;
 		try {
-			
 			if(asc) {
 				posts = post_serv.getPaginasToPostsByTag(
 						PageRequest.of(page, size, Sort.by(order)),tag);

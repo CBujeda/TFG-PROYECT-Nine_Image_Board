@@ -2,6 +2,7 @@ package com.nib.app.model.impl;
 
 import java.sql.SQLException;
 import java.util.Base64;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -153,8 +154,13 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public Page<Post> getPaginasToPostsByTag(Pageable pageable, String tag) {
-		List<Post> posts =  post_dao.findPostsByTag(tag);
-		Page<Post> pages = new PageImpl<Post>(posts, pageable, posts.size());
+		List<Post> posts = post_dao.findPostsByTag(tag);
+		int start = (int) pageable.getOffset();
+		if (start >= posts.size()) {
+		    return new PageImpl<>(Collections.emptyList(), pageable, 0);
+		}
+		int end = Math.min((start + pageable.getPageSize()), posts.size());
+		Page<Post> pages = new PageImpl<>(posts.subList(start, end), pageable, posts.size());
 		return pages;
 	}
 	

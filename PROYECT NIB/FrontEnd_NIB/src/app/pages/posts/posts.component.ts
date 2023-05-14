@@ -74,9 +74,8 @@ export class PostsComponent {
   }
 
   cargar_postsByTag(){
-    console.log()
     this.posts = [];
-
+    console.log(this.page);
     this.postservice.postsPagesByTag(this.page,this.size,this.order,this.asc,this.searchText).subscribe(
       data => {
         console.log(data);
@@ -114,6 +113,7 @@ export class PostsComponent {
       this.cargar_postsByTag();
     }
   }
+
   backPage(){
     if(this.page != 0){
       this.page = this.page - 1;
