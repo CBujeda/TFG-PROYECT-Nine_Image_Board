@@ -1,0 +1,53 @@
+.kawaii-blue-link {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #6495ED; /* Color azul kawaii */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.kawaii-blue-link:hover {
+  color: #ADD8E6; /* Color azul claro en hover */
+  transform: scale(1.1); /* Efecto de escala en hover */
+}
+
+/* -------------TITLE-------------------*/
+
+h1 {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 40px;
+  /*margin-top: 50px;*/
+  position: relative;
+  color: #FF69B4; /* Color rosa kawaii */
+  /*border: 2px solid #FF69B4;*/ /* Borde rosa kawaii */
+  padding: 10px 20px; /* Espaciado interno del borde */
+  /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); *//* Sombra suave */
+}
+
+h1 span {
+  display: inline-block;
+  position: relative;
+  font-family: 'Kawaii', cursive; /* Fuente kawaii */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra al texto */
+  animation: rainbow-text 4s ease-in-out infinite;
+}
+
+@keyframes rainbow-text {
+  0% {
+    color: #FF69B4; /* Color rosa kawaii */
+  }
+  25% {
+    color: #FFD700; /* Color amarillo pastel */
+  }
+  50% {
+    color: #00aeff; /* Color turquesa pastel */
+  }
+  75% {
+    color: #ffabb7; /* Color rosa claro pastel */
+  }
+  100% {
+    color: #FF69B4; /* Color rosa kawaii */
+  }
+}
+

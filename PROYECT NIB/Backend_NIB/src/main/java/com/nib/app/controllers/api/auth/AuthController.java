@@ -28,12 +28,18 @@ public class AuthController {
 			usuario.setId_usuario(null);
 			usuario.setToken(null);
 			usuario.setVerify(true);
-			usuarioServiceImpl.saveUsuario(usuario);
+			usuario.setImgProfile("image.png");	
+			boolean u = usuarioServiceImpl.saveUsuario(usuario);
+			if(u == false) {
+				System.out.println("Hola");
+				return new ResponseEntity<>(formatJson("ERROR"), HttpStatus.OK);
+				
+			}
 			System.out.println(usuario.toString());
 		
-			return new ResponseEntity<>("OK", HttpStatus.OK);
+			return new ResponseEntity<>(formatJson("OK"), HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<>("ERROR", HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>(formatJson("ERROR"), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	

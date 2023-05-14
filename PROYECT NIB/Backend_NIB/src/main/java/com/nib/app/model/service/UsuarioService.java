@@ -10,7 +10,7 @@ import com.nib.app.model.entity.user.Usuario;
 public interface UsuarioService {
 
 
-	public Usuario saveUsuario(Usuario usuario);
+	public boolean saveUsuario(Usuario usuario);
 	
 	public Usuario findByUsername(String usuario);
 	public Usuario findByUsername(Usuario usuario);

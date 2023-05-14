@@ -29,6 +29,11 @@ export class SessionTokenService {
     return this.httpClient.post<any>(apiPostsCont,json)
   }
 
+  public makeRegister(json: any){
+    let apiPostsCont = "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/auth/register";
+    return this.httpClient.post<any>(apiPostsCont,json)
+  }
+
   // Verify token to backend     ----------------
 
   public verifyToken(json: any){

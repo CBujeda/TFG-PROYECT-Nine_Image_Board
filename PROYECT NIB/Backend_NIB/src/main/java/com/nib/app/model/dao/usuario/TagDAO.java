@@ -18,5 +18,12 @@ public interface TagDAO extends JpaRepository<Tag, Long>{
 			+ "LIMIT ?1 ")
 	public List<Tag> getRandomerTag(int limit);
 	
+	@Query(nativeQuery=true, value=""
+			+ "SELECT t.* FROM  "
+			+ "tag t, post_nn_tag pt "
+			+ "WHERE t.id_tag = pt.id_tag "
+			+ "AND pt.id_post = ?1 ")
+	public List<Tag> getTagsByPostId(long postId);
+	
 	public Optional<Tag> findByName(String name);
 }

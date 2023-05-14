@@ -54,6 +54,9 @@ public class UsuarioController {
 		return tmp;
 	}
 	*/
+	
+	// DEPRECATED
+	/*
 	@RequestMapping(value = "/userAdd", method = RequestMethod.POST)
 	public Usuario saveNewUser(@RequestBody Usuario usuario){//@RequestBody Usuario usuario) {
 		
@@ -68,6 +71,6 @@ public class UsuarioController {
 			tmp = usuarioService.saveUsuario(usuario);
 		}
 		return tmp;
-	}
+	}*/
 	
 }

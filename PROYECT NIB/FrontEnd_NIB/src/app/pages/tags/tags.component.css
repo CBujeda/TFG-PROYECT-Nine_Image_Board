@@ -1,0 +1,8 @@
+.container-fluid {
+  background-color: #F5F5F5; /* Color de fondo neutro */
+  min-height: 100vh;
+}
+
+.word-border {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}

@@ -3,6 +3,7 @@ import { PostsService } from '../../services/posts.service';
 import { backserv } from 'config';
 import { TagsService } from 'src/app/services/tags.service';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -11,18 +12,65 @@ import { NgForm } from '@angular/forms';
 export class PostsComponent {
 
   public posts: String[] = [];
-  public tags: String[] = [];
+  public tags: string[] = [];
   public page = 0;
   public size = 18;
   public order = "date";
-  public asc = true;
+  public asc = false;
   public imgApi = backserv.secure+"://"+backserv.ipnibbackserver+":"+backserv.portnibbackserver+"/api/image/get/";
   public searchText = "";
   private isSearch = false;
 
-  constructor(private postservice:PostsService,private tagsService: TagsService){
+
+  constructor(private postservice:PostsService,
+    private tagsService: TagsService,
+    private route: ActivatedRoute){
     this.cargarTags();
-    this.cargar_posts();
+
+    this.route.params.subscribe(params => {
+      let searchTXT = params['id'];
+      if(searchTXT != undefined && searchTXT != null){
+        let searchdata = searchTXT
+        searchdata = this.cleanCharacters(searchdata);
+        this.page = 0;
+        console.log(searchdata);
+        if(searchdata.length >= 1) {
+          this.searchText = searchdata;
+          this.isSearch = true;
+          this.cargar_postsByTag();
+        }else{
+          this.isSearch = false;
+          this.cargar_posts();
+        }
+      }else{
+        this.cargar_posts();
+      }
+
+      // Aquí puedes realizar cualquier lógica adicional con el ID recibido
+    });
+
+  }
+
+  ngOnInit() {
+
+
+  }
+
+
+  goTagSearch(str:string) {
+    console.log(str);
+    //let searchdata = str
+    let searchdata = str;
+    this.page = 0;
+    console.log(searchdata);
+    if(searchdata.length >= 1) {
+      this.searchText = searchdata;
+      this.isSearch = true;
+      this.cargar_postsByTag();
+    }else{
+      this.isSearch = false;
+      this.cargar_posts();
+    }
 
   }
 

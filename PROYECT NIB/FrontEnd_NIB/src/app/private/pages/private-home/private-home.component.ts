@@ -6,6 +6,7 @@ import { PostsService } from 'src/app/services/posts.service';
 import { ConfAPPService } from 'src/app/services/conf-app.service';
 import { Router } from '@angular/router';
 import { SessionTokenService } from 'src/app/services/session-token.service';
+
 @Component({
   selector: 'app-private-home',
   templateUrl: './private-home.component.html',
@@ -48,6 +49,11 @@ export class PrivateHomeComponent {
         console.error(err);
       }
     );
+  }
+
+  public logOut(): void {
+    this.sessionService.writeToken("null");
+    this.router.navigate(['/']);
   }
 
   private setConList() {

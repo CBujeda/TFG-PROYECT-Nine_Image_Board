@@ -66,8 +66,7 @@ public class PostServiceImpl implements PostService {
 					if(ps != null) {
 						String[] tags = image.getTags().split(",");
 						for(String tag : tags) {
-							tag = tag.replaceAll(" ", "").replaceAll(";", "");
-							System.out.println(tag);
+							tag = tag.replaceAll(" ", "").replaceAll(";", "").toLowerCase();
 							Tag tg = tag_service.findByName(tag);
 							if(tg != null) {
 								ps.getTaglist().add(tg);
@@ -156,15 +155,21 @@ public class PostServiceImpl implements PostService {
 	public Page<Post> getPaginasToPostsByTag(Pageable pageable, String tag) {
 		List<Post> posts = post_dao.findPostsByTag(tag);
 		int start = (int) pageable.getOffset();
-		if (start >= posts.size()) {
+		if (start >= posts.size()) {	// Evitamos bug de datos inexistentes
 		    return new PageImpl<>(Collections.emptyList(), pageable, 0);
 		}
 		int end = Math.min((start + pageable.getPageSize()), posts.size());
 		Page<Post> pages = new PageImpl<>(posts.subList(start, end), pageable, posts.size());
 		return pages;
 	}
-	
-	
 
-	
+	@Override
+	public Post getPostById(Long id) {
+		Optional<Post> p = post_dao.findById(id);
+		if(p.isPresent()) {
+			return p.get();
+		}else {
+			return null;
+		}
+	}
 }

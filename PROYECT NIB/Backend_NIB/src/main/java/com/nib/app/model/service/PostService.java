@@ -1,5 +1,7 @@
 package com.nib.app.model.service;
 
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -20,4 +22,6 @@ public interface PostService {
 	public BinaryFile getImageById_Post(Long id);
 	
 	public Page<Post> getPaginasToPostsByTag(Pageable pageable, String tag);
+	
+	public Post getPostById(Long id);
 }

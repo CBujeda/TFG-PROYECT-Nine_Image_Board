@@ -35,4 +35,19 @@ export class PostsService {
     console.log(apiPostsSave)
     return this.httpClient.post<any>(apiPostsSave, json);//, { headers: headers }
   }
+
+  public getInfoPost(id: String){
+    let apiPostsCont =
+    "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/private/post/getPostInfo"
+    + `?id_post=${id}`;
+    return this.httpClient.get<any>(apiPostsCont)
+  }
+
+  public getTagsByPostID(id: String){
+    let apiPostsCont =
+    "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/private/post/getTagsByPost"
+    + `?id_post=${id}`;
+    return this.httpClient.get<any>(apiPostsCont)
+  }
+
 }

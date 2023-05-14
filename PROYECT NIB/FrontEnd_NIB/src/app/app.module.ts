@@ -30,22 +30,32 @@ import { PrivateHomeComponent } from './private/pages/private-home/private-home.
 import { PrivateNavComponent } from './private/components/private-nav/private-nav.component';
 import { PrivatePostsComponent } from './private/pages/private-posts/private-posts.component';
 import { UploadComponent } from './private/pages/upload/upload.component';
+import { ContainTagsComponent } from './pages/contain-tags/contain-tags.component';
+import { PrivateTagsComponent } from './private/pages/private-tags/private-tags.component';
+import { InfoPostsComponent } from './pages/info-posts/info-posts.component';
 
 const priv = "private/"
 
 const appRoutes:Routes = [
   {path:"",component:PublicHomeComponent},
+  {path:"home",component:PublicHomeComponent},
   {path:"posts",component:PostcontainerComponent},
- {path:"login",component:LoginComponent},
- {path:"signup",component:SignupComponent},
- {path:"terms-and-conditions",component:TermsAndConditionsComponent},
- {path:"tags",component:TagsComponent},
+  {path:"posts/:id",component:PostcontainerComponent},
+
+  {path:"login",component:LoginComponent},
+  {path:"signup",component:SignupComponent},
+  {path:"terms-and-conditions",component:TermsAndConditionsComponent},
+  {path:"tags",component:ContainTagsComponent},
+
+  // public and private components
+  { path: 'info/post/:id', component: InfoPostsComponent },
 
  //private
  {path:priv+"userprofile",component:UserProfileComponent},
  {path:priv+"home",component:PrivateHomeComponent},
  {path:priv+"posts",component:PrivatePostsComponent },
  {path:priv+"upload",component:UploadComponent },
+ {path:priv+"tags",component:PrivateTagsComponent },
 
 //SPECIAL
  {path:"creadoradenibsuperkawaiipage",component:CreatebyComponent},
@@ -76,6 +86,9 @@ const appRoutes:Routes = [
     PrivateNavComponent,
     PrivatePostsComponent,
     UploadComponent,
+    ContainTagsComponent,
+    PrivateTagsComponent,
+    InfoPostsComponent,
   ],
   imports: [
     BrowserModule,

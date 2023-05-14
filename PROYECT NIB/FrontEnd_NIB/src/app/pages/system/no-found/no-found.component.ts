@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { SessionTokenService } from 'src/app/services/session-token.service';
 
 @Component({
   selector: 'app-no-found',
@@ -19,10 +22,40 @@ export class NoFoundComponent {
     "✅ I like searching the web page",
     "Tock Tock, there is no one ┑(●'◡'●)┍"];
 
-  constructor(){
-    this.changetext();
-    this.progress();
+  private isLogin: boolean = false;
 
+  constructor(
+    public translate: TranslateService,
+    private sessionService: SessionTokenService,
+    private router: Router
+  ) {
+
+    let token = sessionService.readToken();
+    const json = { token: token};
+    this.sessionService.verifyToken(json).subscribe(
+      data => {
+        let isCorrect = data.value;
+        this.changetext();
+        this.progress();
+        if(isCorrect == "true" || isCorrect == true){
+          this.isLogin = true;
+        }else{
+          this.isLogin = false;
+
+        }
+      },
+      err =>{
+        console.error(err);
+      }
+    );
+  }
+
+  public goToHomePage() {
+    if(this.isLogin == true){
+        this.router.navigate(['/private/home']);
+    }else{
+        this.router.navigate(['/home']);
+    }
   }
 
   private async progress() {

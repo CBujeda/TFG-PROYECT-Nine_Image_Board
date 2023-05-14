@@ -20,8 +20,8 @@ export class LoginComponent  {
   submitLogin(form:NgForm) {
     let username = form.value.usuario;
     let password = form.value.passwd;
-    console.log(username);
-    console.log(password);
+    //console.log(username);
+    //console.log(password);
     const json = { username: username, password: password };
 
     this.sessionService.makeLogin(json).subscribe(

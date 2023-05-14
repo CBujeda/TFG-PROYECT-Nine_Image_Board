@@ -4,6 +4,8 @@ import { backserv } from '../../../../config';
 import axios from "axios";
 import { PostsService } from 'src/app/services/posts.service';
 import { ConfAPPService } from 'src/app/services/conf-app.service';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-public-home',
   templateUrl: './public-home.component.html',
@@ -23,7 +25,8 @@ export class PublicHomeComponent {
   constructor(
     public translate: TranslateService,
     private postservice: PostsService,
-    private confappsevice: ConfAPPService
+    private confappsevice: ConfAPPService,
+    private router: Router
   ) {
     this.setConList();
     this.setNameApp();
@@ -114,4 +117,26 @@ export class PublicHomeComponent {
   private delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
+
+
+
+
+  submitSearch(form:NgForm) {
+    let searchdata = form.value.searchdata;
+    searchdata = this.cleanCharacters(searchdata);
+    this.router.navigate(['/posts/'+searchdata]);
+
+  }
+
+  cleanCharacters(str:string){
+    var caracteresProblema = "/ <>{}|\\^[]` +;\"%=@&$";
+    var limpio = "";
+    for (var i = 0; i < str.length; i++) {
+      if (caracteresProblema.indexOf(str.charAt(i)) == -1) {
+        limpio += str.charAt(i);
+      }
+    }
+    return limpio;
+  }
+
 }

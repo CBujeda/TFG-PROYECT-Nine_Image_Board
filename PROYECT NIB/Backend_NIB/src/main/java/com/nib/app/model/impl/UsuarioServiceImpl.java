@@ -22,12 +22,13 @@ public class UsuarioServiceImpl implements UsuarioService {
 	private UsuarioDAO usuarioDAO;
 	
 	@Override
-	public Usuario saveUsuario(Usuario usuario){
+	public boolean saveUsuario(Usuario usuario){
 		Usuario localUser = findByUsername(usuario.getUsername());
 		if(localUser != null) {
 			localUser.setPassword(null);
 			localUser.setToken(null);
 			System.err.println("[ERROR] [si002] - El usuario a insertar ya existe");
+			return false;
 		}else{
 			TokenGen t = new TokenGen();
 			PasswordEncryptor encryptor = new PasswordEncryptor();
@@ -56,7 +57,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 				System.err.println("[ERROR] [si001] - Error al añadir un usuario \n" + e.toString());
 			}
 		}
-		return localUser;
+		return true;
 	}
 
 	private void createBinaryData(String id) throws SQLException {

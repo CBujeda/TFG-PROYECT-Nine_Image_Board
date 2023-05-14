@@ -1,0 +1,104 @@
+<div *ngIf="isLoggedIn">
+  <app-private-nav></app-private-nav>
+</div>
+<div *ngIf="!isLoggedIn">
+  <app-navbar></app-navbar>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 colContainInfo1">
+      <!-- Contenido de la columna 1 -->
+      <!--HEADER-->
+      <div >
+        <button class="kawaii-back-btn" (click)="back()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+        </button>
+        <h1 [ngStyle]="{ 'color': getRandomColor()  }"
+        class="ms-1 me-1 word-border random-color">{{postName}}  </h1>
+
+      </div>
+      <div>
+        <span><b>Date: </b>{{date}}</span><br>
+        <span><b>Type: </b>{{typeImage}}</span><br>
+        <div class="mt-3">
+          <span><b>Tags</b></span><br>
+          <div *ngFor="let n of tags">
+
+              + <a style="
+              color: #2fa1ff;
+              text-shadow: 1px 1px #000000;
+              cursor: pointer;" (click)="redirectTag(n)" >{{n}}</a><br>
+          </div>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <div class="col-10 d-flex align-items-start justify-content-center">
+          <div class="position-relative">
+            <img src="{{imgApi}}{{id}}" class="img-kawaii" alt="Imagen">
+            <button (click)="downloadImage()" class="btn btn-floating btn-download position-absolute">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download"
+                viewBox="0 0 16 16">
+                <path
+                  d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                <path
+                  d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="col-2">
+           <!-- PANEL -->
+          <div class="d-flex flex-column bg-pastel-primary panel-right">
+            <!-- ADD IMAGE -->
+            <button class="btn btn-pastel-primary btn-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
+              </svg>
+            </button>
+            <!-- SEND -->
+            <button class="btn btn-pastel-primary btn-icon" (click)="sharePopup()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+              </svg>
+            </button>
+            <!--PopUp-->
+            <div class="popup nput-container" *ngIf="isPopupVisible">
+              <input class="kawaii-input" id="inputShared" value="{{currentURL}}" readonly >
+              <button class="copy-button" (click)="copyText()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                  <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                </svg>
+              </button>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12">
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

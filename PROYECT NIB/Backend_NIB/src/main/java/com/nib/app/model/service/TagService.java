@@ -14,6 +14,8 @@ public interface TagService {
 
 	public Page<Tag> getPaginasTags(Pageable pageable);
 	
+	public List<Tag> getTagsByIdPost(Long id);
+	
 	public Tag findByName(String name);
 	
 	public Tag saveTag(Tag tag);

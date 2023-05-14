@@ -1,7 +1,15 @@
 <div class="container-fluid">
 
   <div class="row">
-    <div class="col-3" style="min-height: calc( 100vh - 56px) ;background-color: '#c7e6ff'; ">
+    <div class="col-3"
+    style="
+    min-height: calc( 100vh - 56px);
+    background-color: '#c7e6ff';
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    ">
       <div class="row">
         <div class="col-12">
           <div class="row justify-content-center mt-3">
@@ -12,7 +20,7 @@
             <div class="col-9 mt-2">
               <form (ngSubmit)="submitLogin(simpleloginForm)"  #simpleloginForm="ngForm">
                 <div class="input-group mb-0 mt-0 p-0">
-                  <input type="text" class="form-control pt-1 pb-1" name="searchdata" id="searchdata" ngModel>
+                  <input [(ngModel)]="searchText" type="text" class="form-control pt-1 pb-1" value="{{searchText}}" name="searchdata" id="searchdata" ngModel>
                   <button class="btn btn-dark pt-1 pb-1" type="submit"><span>{{'SEARCH'|translate}}</span></button>
                 </div>
               </form>
@@ -24,7 +32,7 @@
                 color: rgb(217, 109, 145);
                 text-shadow: 1px 1px #000000;
                 cursor: pointer;
-                ">+{{t}}</a>
+                " (click)="goTagSearch(t)">+{{t}}</a>
               </div>
             </div>
           </div>
@@ -38,8 +46,15 @@
           <div class="col-12">
             <div class="row">
               <div class="col-2 ps-2 pe-2 mt-2 text-center" *ngFor="let d of posts">
-                <a href="">
-                  <img src="{{imgApi}}{{d}}" class="img-fluid border border-1 border-dark">
+                <a href="/info/post/{{d}}">
+                  <img src="{{imgApi}}{{d}}"
+                  class="
+                  img-fluid border
+                  "
+                  style="
+                  border-radius: 10px;
+                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"
+                  >
                 </a>
               <!-- <p><span>titulo</span></p>-->
               </div>
@@ -48,8 +63,9 @@
         </div>
         <div class="row">
           <div class="col-12 text-center">
-
-            <a (click)="backPage()" class="btn btn-outline-primary"><</a><a class="btn btn-outline-primary " disabled>{{page}}</a><a (click)="nextPage()" class="btn btn-outline-primary">></a>
+            <a (click)="backPage()" class="btn btn-outline-pastel-primary"><</a>
+            <a class="btn btn-outline-pastel-primary " disabled>{{page}}</a>
+            <a (click)="nextPage()" class="btn btn-outline-pastel-primary">></a>
           </div>
         </div>
 

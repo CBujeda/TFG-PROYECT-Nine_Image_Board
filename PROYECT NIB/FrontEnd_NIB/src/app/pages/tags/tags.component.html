@@ -1,30 +1,36 @@
-<app-navbar></app-navbar>
+
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-6">
-      <table class="table  table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Tag</th>
-
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let i of tagsTable;let p = index">
-            <th scope="row">{{p}}</th>
-            <td><a href="/search/{{i}}">{{i}}</a></td>
-          </tr>
-        </tbody>
-
-      </table>
-
-    </div>
-    <div class="col-md-12 col-md-6 col-lg-6">
-
+    <div class="col-md-12">
+      <h2><span><b [ngStyle]="{ 'color': getRandomColor()  }"
+        [ngClass]="'word-border'">
+        Tags
+      </b></span></h2>
+      <hr>
     </div>
   </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row" >
+        <div class="col-12">
+            <div >
+              <b  *ngFor="let i of tagsTable;let p = index" href=""
+              [ngStyle]="{ 'font-size': getRandomSize() , 'color': getRandomColor()  }"
+              class="ms-1 me-1"
+              [ngClass]="'word-border'"
+              >
+
+              {{i}}
+            </b>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
   <div class="row">
     <div class="col-12">
       <div class="row  justify-content-center">

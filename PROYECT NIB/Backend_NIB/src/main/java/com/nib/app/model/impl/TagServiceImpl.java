@@ -49,4 +49,10 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
+	@Override
+	public List<Tag> getTagsByIdPost(Long id) {
+		List<Tag> tags = tagdao.getTagsByPostId(id);
+		return tags;
+	}
+
 }

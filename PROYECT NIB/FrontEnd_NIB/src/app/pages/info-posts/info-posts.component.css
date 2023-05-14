@@ -1,0 +1,167 @@
+.colContainInfo1 {
+  min-height: calc(100vh - 56px);
+  background-color: #FFB3BA;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.img-kawaii {
+  max-width: 100%;
+  max-height: 60vh;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Agrega cualquier otro estilo adicional kawaii */
+}
+
+.btn-download {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #FFB3BA;
+  border-color: #FFB3BA;
+  color: #FFFFFF;
+  opacity: 0.8;
+}
+
+.btn-download:hover {
+  background-color: #FFA0D9;
+  border-color: #FFA0D9;
+  opacity: 1;
+}
+
+/*=========================================================================*/
+
+.panel-right {
+  width: 80px;
+  padding: 5px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-left: 10px;
+  position: fixed;
+  top: 20%;
+  right: 0;
+  transform: translateY(-20%);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-pastel-primary {
+  background-color: #FFB3BA;
+  border-color: #FFB3BA;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.btn-pastel-primary:hover {
+  background-color: #FFA0D9;
+  border-color: #FFA0D9;
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+/*------------------------------------------------------------------------*/
+.popup {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 10px);
+  transform: translateY(-50%);
+  z-index: 9999;
+  padding: 10px;
+  background-color: #FFB3BA;
+  color: #FFFFFF;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.kawaii-input {
+
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background-color: #ffffff;
+  color: #606060;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: background-color 0.3s ease;
+
+}
+
+.kawaii-input::placeholder {
+  color: #FFFFFF;
+  opacity: 0.7;
+}
+
+.kawaii-input:hover,
+.kawaii-input:focus {
+  background-color: #FFA0D9;
+}
+
+.kawaii-input:disabled {
+  background-color: #EDEDED;
+  cursor: not-allowed;
+}
+
+
+.input-container {
+  position: absolute;
+}
+
+.copy-button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 2px;
+  padding: 2;
+  background-color: #ffc0ef;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.copy-button:hover {
+  background-color: #FFA0D9;
+}
+
+/****************************KAWAII BACK BTN************************************/
+.kawaii-back-btn {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: #FF8AB8; /* Nuevo color que contrasta más */
+  border: 2px solid #ff79af; /* Borde bonito */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.kawaii-back-btn:hover {
+  background-color: #FF6E9D; /* Nuevo color de fondo en hover */
+}
+
+
+/* =============================GENERAL====================================*/
+
+.word-border {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
