@@ -81,6 +81,18 @@ public class RolServiceImpl implements RolService {
 		}
 	}
 
+	@Override
+	public boolean isthisUserAdminByToken(String token) {
+		boolean isAdmin = false;
+		List<Rol> r = roldao.findRolesByUserToken(token);
+		for(int i = 0; i < r.size(); i++) {
+			if(r.get(i).getNombre().equalsIgnoreCase("ADMIN")) {
+				isAdmin = true;
+			}
+		}
+		return isAdmin;
+	}
+
 	
 	
 }

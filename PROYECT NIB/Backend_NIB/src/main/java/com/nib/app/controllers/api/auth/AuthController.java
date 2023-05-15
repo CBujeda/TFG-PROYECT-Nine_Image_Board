@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nib.app.model.entity.user.Usuario;
 import com.nib.app.model.impl.UsuarioServiceImpl;
+import com.nib.app.model.service.RolService;
 import com.nib.app.objects.PO;
 
 @RestController
@@ -21,6 +22,9 @@ public class AuthController {
 
 	@Autowired
 	private UsuarioServiceImpl usuarioServiceImpl;
+	
+	@Autowired
+	private RolService rolService;
 	
 	@PostMapping("/register")
 	public ResponseEntity<String> authRegister(@RequestBody Usuario usuario) {
@@ -69,4 +73,18 @@ public class AuthController {
 	public String formatJson(String value) {
 		return "{\"value\":\""+value+"\"}";
 	}
+	
+	
+	@PostMapping("/verifyAdmin")
+	public ResponseEntity<String> veifyAdmin(@RequestBody PO token){
+		try {
+			boolean result = rolService.isthisUserAdminByToken(token.getToken());
+			System.out.println(result);
+			return new ResponseEntity<String>(formatJson(result), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(formatJson(false), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+
 }

@@ -50,4 +50,9 @@ export class SessionTokenService {
     let apiPostsCont = "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/users/update";
     return this.httpClient.post<any>(apiPostsCont,json)
   }
+
+  public verifyAdmin(json: any){
+    let apiPostsCont = "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/auth/verifyAdmin";
+    return this.httpClient.post<any>(apiPostsCont,json)
+  }
 }

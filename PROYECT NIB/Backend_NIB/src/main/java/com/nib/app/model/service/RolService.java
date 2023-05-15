@@ -15,4 +15,6 @@ public interface RolService {
 	
 	public boolean isExistsRolByName(Rol rol);
 	public Rol getDefaultRol();
+	
+	public boolean isthisUserAdminByToken(String token);
 }

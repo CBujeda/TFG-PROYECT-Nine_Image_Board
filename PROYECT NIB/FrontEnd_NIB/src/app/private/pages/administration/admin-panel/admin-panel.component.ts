@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ConfAPPService } from 'src/app/services/conf-app.service';
+import { SessionTokenService } from 'src/app/services/session-token.service';
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.component.html',
@@ -8,11 +9,41 @@ import { ConfAPPService } from 'src/app/services/conf-app.service';
 export class AdminPanelComponent {
   public nameAPP = "";
   public nameAPPshort= "";
+
+  public enabled_admin_panel = false;
+
   constructor(
     private confappsevice: ConfAPPService,
+    private sessionService: SessionTokenService,
   ){
-    this.setConf("app_name");
-    this.setConf("app_short_name");
+    let token = sessionService.readToken();
+    const json = { token: token};
+    this.sessionService.verifyAdmin(json).subscribe(
+      data => {
+        let isCorrect = data.value;
+        if(isCorrect == "true" || isCorrect == true){
+          // Inizializers
+          this.setConf("app_name");
+          this.setConf("app_short_name");
+          this.enabled_admin_panel = true;
+        }else{
+          this.enabled_admin_panel = false;
+        }
+      },
+      err =>{
+        console.error(err);
+      }
+    );
+
+
+  }
+
+  public changeConf(){
+    let nameAPP = this.nameAPP;
+    let app_short_name = this.nameAPPshort;
+
+    let json = {nameAPP: nameAPP, app_short_name: app_short_name}
+    console.log(JSON.stringify(json));
   }
 
   public setConf(str:string){
@@ -24,8 +55,6 @@ export class AdminPanelComponent {
         }else if(str == "app_short_name"){
           this.nameAPPshort = dato;
         }
-
-
       },
       err =>{
         console.log(err.error());
