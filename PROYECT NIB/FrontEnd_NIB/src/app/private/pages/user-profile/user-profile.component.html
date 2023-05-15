@@ -6,14 +6,17 @@
     </div>
   </div>
   <div class="row">
+
+    <form (ngSubmit)="submitUpdate(simpleUserUpdateForm)"  #simpleUserUpdateForm="ngForm">
+
     <div class="col-10">
       <div class="row">
         <div class="col-6">
           <div class="row justify-content-center">
             <div class="col-6">
               <div class="card">
-                <img src="{{imageProfileDisplay}}" class="card-img-top" alt="...">
-                <input type="text" name="image" value="{{image}}" class="form-control rounded-0 rounded-bottom">
+                <img src="{{imageProfileDisplay}}" class="card-img-top kawaii-img" alt="...">
+                <input type="text" name="image" value="{{image}}" class="form-control rounded-0 rounded-bottom kawaii-input" [(ngModel)]="image">
               </div>
             </div>
           </div>
@@ -30,7 +33,7 @@
                     <div class="col-12">
                       <div class="mb-3">
                         <label class="form-label">Username</label>
-                        <input type="text" value="{{username}}" class="form-control" disabled readonly>
+                        <input type="text" value="{{username}}" class="form-control kawaii-input-disabled" disabled readonly>
                       </div>
                     </div>
                   </div>
@@ -39,7 +42,7 @@
                     <div class="col-12">
                       <div class="mb-3">
                         <label class="form-label">Email</label>
-                        <input type="text" value="{{email}}" class="form-control" disabled readonly>
+                        <input type="text" value="{{email}}" class="form-control kawaii-input-disabled" disabled readonly>
                       </div>
                     </div>
                   </div>
@@ -48,7 +51,7 @@
                     <div class="col-12">
                       <div class="mb-3">
                         <label class="form-label">Password</label>
-                        <input type="password" placeholder="Change Password" class="form-control">
+                        <input type="password" name="newpass" placeholder="Change Password" class="form-control kawaii-input" [(ngModel)]="newpasword">
                       </div>
                     </div>
                   </div>
@@ -60,7 +63,7 @@
                     <div class="col-12">
                       <div class="mb-3">
                         <label class="form-label">Nombre</label>
-                        <input type="text" value="{{nombre}}" class="form-control">
+                        <input type="text" value="{{nombre}}" name="nombre" class="form-control kawaii-input" [(ngModel)]="nombre">
                       </div>
                     </div>
                   </div>
@@ -69,7 +72,7 @@
                     <div class="col-12">
                       <div class="mb-3">
                         <label class="form-label">Apellidos</label>
-                        <input type="text" value="{{apellido}}" class="form-control">
+                        <input type="text" value="{{apellido}}" name="apellidos" class="form-control kawaii-input" [(ngModel)]="apellido">
                       </div>
                     </div>
                   </div>
@@ -78,7 +81,7 @@
                     <div class="col-12">
                       <div class="mb-3">
                         <label class="form-label">Token <span class="text-danger"> (Not enabled)</span></label>
-                        <textarea class="form-control" rows="3" disabled>NIB_TK</textarea>
+                        <textarea class="form-control token-input" rows="3" disabled>NIB_TK</textarea>
                       </div>
                     </div>
                   </div>
@@ -87,8 +90,8 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-12">
-                  <a class="btn btn-outline-secondary">Update</a>
+                <div class="col-12 text-end">
+                  <button type="submit" class="btn btn-outline-secondary kawaii-btn ">Update</button>
                 </div>
               </div>
             </div>
@@ -96,5 +99,12 @@
         </div>
       </div>
     </div>
+
+
+  </form>
+
+
   </div>
 </div>
+
+<app-admin-panel></app-admin-panel>

@@ -58,6 +58,12 @@ public class Config implements Serializable{
 	public void setValue(String value) {
 		this.value = value;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Config [id_conf=" + id_conf + ", conf=" + conf + ", value=" + value + "]";
+	}
 	
 	
 }

@@ -25,24 +25,15 @@
         <span><b>Type: </b>{{typeImage}}</span><br>
         <div class="mt-3">
           <span><b>Tags</b></span><br>
-          <div *ngFor="let n of tags">
+          <div style="
+          color: #2fa1ff;
+          text-shadow: 1px 1px #000000;
+          cursor: pointer;" *ngFor="let n of tags">
 
-              + <a style="
-              color: #2fa1ff;
-              text-shadow: 1px 1px #000000;
-              cursor: pointer;" (click)="redirectTag(n)" >{{n}}</a><br>
+              + <a  (click)="redirectTag(n)" >{{n}}</a><br>
           </div>
       </div>
       </div>
-
-
-
-
-
-
-
-
-
 
     </div>
     <div class="col-9">

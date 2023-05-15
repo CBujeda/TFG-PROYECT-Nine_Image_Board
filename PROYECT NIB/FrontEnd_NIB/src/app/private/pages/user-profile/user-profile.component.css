@@ -1,0 +1,50 @@
+.kawaii-img {
+  border: 2px solid pink;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.kawaii-input-disabled {
+  border: 2px solid pink;
+  padding: 10px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 16px;
+  color: purple;
+  background-color: #cfab82;
+}
+
+.kawaii-input {
+  border: 2px solid pink;
+  padding: 10px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 16px;
+  color: purple;
+  background-color: #FFDFBA;
+}
+
+.token-input {
+  border: 2px solid rgb(130, 255, 178);
+  padding: 10px;
+  font-family: 'consolas', cursive;
+  font-size: 16px;
+  color: rgb(38, 255, 0);
+  background-color: #242424;
+}
+
+
+/*  BTN */
+.kawaii-btn {
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 16px;
+  color: purple;
+  background-color: #FFDFBA;
+  border-color: pink;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.kawaii-btn:hover {
+  background-color: pink;
+  color: purple;
+}

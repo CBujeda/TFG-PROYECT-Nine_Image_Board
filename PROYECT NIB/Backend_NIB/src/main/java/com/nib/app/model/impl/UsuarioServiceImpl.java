@@ -147,4 +147,20 @@ public class UsuarioServiceImpl implements UsuarioService {
 			return null;
 		}
 	}
+
+	@Override
+	public boolean updateUser(Usuario usuario) {
+		Usuario localUser = findByUsername(usuario.getUsername());
+		if(localUser != null) {
+			try {
+				usuarioDAO.save(usuario);
+				return true;	
+			}catch(Exception e) {
+				System.err.println("[ERROR] [si001] - Error al añadir un usuario \n" + e.toString());
+				return false;	
+			}
+		}else{
+			return false;		
+		}
+	}
 }

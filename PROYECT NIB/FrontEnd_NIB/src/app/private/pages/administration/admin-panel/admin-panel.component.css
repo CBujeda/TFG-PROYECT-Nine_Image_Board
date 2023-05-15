@@ -1,0 +1,59 @@
+.panel {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.kawaii-input {
+  border: none;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Kawaii Font', cursive;
+  color: #ff7b7b;
+}
+
+.kawaii-btn {
+  margin-top: 10px;
+  background-color: #ff7b7b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-family: 'Kawaii Font', cursive;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.kawaii-btn:hover {
+  background-color: #ff5656;
+}
+
+/*Vertical menu*/
+
+.vertical-menu {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Kawaii Font', cursive;
+  color: #ff7b7b;
+}
+
+.vertical-menu a {
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.vertical-menu a:hover {
+  background-color: #ff5656;
+  color: #fff;
+}

@@ -193,7 +193,7 @@ public class Usuario implements Serializable {
 	public String toString() {
 		return "Usuario [id_usuario:" + id_usuario + ", username:" + username + ", nombre:" + nombre + ", apellido:"
 				+ apellido + ", email:" + email + ", password:" + password + ", verify:" + verify + ", imgProfile:"
-				+ imgProfile + ", postList:" + postList + ", roleslist:" + roleslist + "]";
+				+ imgProfile + ", postList:[NO VIEW], roleslist: [NO VIEW] ]";
 	}
 
 	public String getToken() {

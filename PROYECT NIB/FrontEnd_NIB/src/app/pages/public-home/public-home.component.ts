@@ -125,7 +125,6 @@ export class PublicHomeComponent {
     let searchdata = form.value.searchdata;
     searchdata = this.cleanCharacters(searchdata);
     this.router.navigate(['/posts/'+searchdata]);
-
   }
 
   cleanCharacters(str:string){

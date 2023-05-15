@@ -45,4 +45,9 @@ export class SessionTokenService {
     let apiPostsCont = "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/users/get";
     return this.httpClient.post<any>(apiPostsCont,json)
   }
+
+  public userUpdateByToken(json: any){
+    let apiPostsCont = "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/users/update";
+    return this.httpClient.post<any>(apiPostsCont,json)
+  }
 }

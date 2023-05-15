@@ -57,11 +57,11 @@
           <div class="row justify-content-center">
             <div class="col-xxl-8 col-xl-8 col-lg-8 col-sm-12">
 
-              <form>
+              <form (ngSubmit)="submitSearch(searchText)"  #searchText="ngForm">
                 <div class="input-group mb-0">
                   <input type="text" class="form-control" name="searchdata" id="searchdata"
-                    [placeholder]="animatedPlaceholder" (change)="onChangeValue('')">
-                  <button class="btn btn-outline-secondary" type="button"><span>{{'SEARCH'|translate}}</span></button>
+                    [placeholder]="animatedPlaceholder"  ngModel>
+                  <button class="btn btn-outline-secondary" type="submit"><span>{{'SEARCH'|translate}}</span></button>
                 </div>
                 <div style="font-size: 80%;">
                   <span>Hay {{numberCont}} posts - Running by Nine Image Board</span>

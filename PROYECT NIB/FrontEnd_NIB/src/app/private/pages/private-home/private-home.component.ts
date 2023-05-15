@@ -6,7 +6,7 @@ import { PostsService } from 'src/app/services/posts.service';
 import { ConfAPPService } from 'src/app/services/conf-app.service';
 import { Router } from '@angular/router';
 import { SessionTokenService } from 'src/app/services/session-token.service';
-
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-private-home',
   templateUrl: './private-home.component.html',
@@ -39,7 +39,7 @@ export class PrivateHomeComponent {
         if(isCorrect == "true" || isCorrect == true){
           this.setConList();
           this.setNameApp();
-          //this.placeholderAnimator();
+          this.placeholderAnimator();
         }else{
           this.router.navigate(['/unautorized']);
         }
@@ -72,6 +72,23 @@ export class PrivateHomeComponent {
         this.contList.push("E.gif")
       }
     );
+  }
+
+  submitSearch(form:NgForm) {
+    let searchdata = form.value.searchdata;
+    searchdata = this.cleanCharacters(searchdata);
+    this.router.navigate(['/private/posts/'+searchdata]);
+  }
+
+  cleanCharacters(str:string){
+    var caracteresProblema = "/ <>{}|\\^[]` +;\"%=@&$";
+    var limpio = "";
+    for (var i = 0; i < str.length; i++) {
+      if (caracteresProblema.indexOf(str.charAt(i)) == -1) {
+        limpio += str.charAt(i);
+      }
+    }
+    return limpio;
   }
 
   public setNameApp(){

@@ -25,5 +25,7 @@ public interface UsuarioService {
 	public Usuario findUsernameByToken(String token);
 	
 	public boolean verifyToken(String token);
+	
+	public boolean updateUser(Usuario usuario);
 }
 

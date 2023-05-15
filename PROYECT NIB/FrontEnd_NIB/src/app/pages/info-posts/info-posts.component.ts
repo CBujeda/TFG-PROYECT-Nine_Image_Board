@@ -122,7 +122,7 @@ export class InfoPostsComponent {
     if(!this.isLoggedIn){
       this.router.navigate(['/posts/'+str]);
     }else{
-      this.router.navigate(['/private/posts'+str]);
+      this.router.navigate(['/private/posts/'+str]);
     }
   }
 

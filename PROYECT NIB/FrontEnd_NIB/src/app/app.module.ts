@@ -33,6 +33,7 @@ import { UploadComponent } from './private/pages/upload/upload.component';
 import { ContainTagsComponent } from './pages/contain-tags/contain-tags.component';
 import { PrivateTagsComponent } from './private/pages/private-tags/private-tags.component';
 import { InfoPostsComponent } from './pages/info-posts/info-posts.component';
+import { AdminPanelComponent } from './private/pages/administration/admin-panel/admin-panel.component';
 
 const priv = "private/"
 
@@ -54,6 +55,7 @@ const appRoutes:Routes = [
  {path:priv+"userprofile",component:UserProfileComponent},
  {path:priv+"home",component:PrivateHomeComponent},
  {path:priv+"posts",component:PrivatePostsComponent },
+ {path:priv+"posts/:id",component:PrivatePostsComponent },
  {path:priv+"upload",component:UploadComponent },
  {path:priv+"tags",component:PrivateTagsComponent },
 
@@ -89,6 +91,7 @@ const appRoutes:Routes = [
     ContainTagsComponent,
     PrivateTagsComponent,
     InfoPostsComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,
