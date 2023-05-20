@@ -56,15 +56,15 @@
            <!-- PANEL -->
           <div class="d-flex flex-column bg-pastel-primary panel-right">
             <!-- ADD IMAGE -->
-            <button class="btn btn-pastel-primary btn-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
+            <button class="btn btn-pastel-primary ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill-add" viewBox="0 0 16 16">
                 <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                 <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
               </svg>
             </button>
             <!-- SEND -->
-            <button class="btn btn-pastel-primary btn-icon" (click)="sharePopup()">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+            <button class="btn btn-pastel-primary" (click)="sharePopup()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="bi bi-send-fill" viewBox="0 0 16 16">
                 <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
               </svg>
             </button>
@@ -84,9 +84,53 @@
         </div>
 
       </div>
-      <div class="row">
-        <div class="col-12">
+      <div class="row justify-content-center">
+        <div class="col-8">
 
+          <!--CHat-->
+          <div class="chat-container mt-5 mb-5">
+            <div *ngIf="isLoggedIn" class="comment-input">
+
+              <div class="comment-input-inner">
+                <textarea class="comment-textarea" [(ngModel)]="message" placeholder="Añadir un comentario...">{{message}}</textarea>
+                <a (click)="sendComment()" class="btn">Enviar</a>
+              </div>
+
+            </div>
+            <div class="comment-list">
+
+              <div *ngFor="let i of comments">
+
+
+                <div class="comment">
+                  <div *ngIf="i.imgUsuario != 'image.png'">
+                    <img src="{{i.imgUsuario}}" alt="Avatar" class="avatar">
+                  </div>
+                  <div *ngIf="i.imgUsuario == 'image.png'">
+                    <img src="../../../assets/img/iconProfile.png" alt="Avatar" class="avatar">
+                  </div>
+
+                  <div class="message">
+
+                    <span class="name">{{i.nameUsuario}}</span>
+                    <p >{{i.message}}</p>
+                  </div>
+                </div>
+              </div>
+
+              <!--
+              <div class="comment">
+                <img src="http://localhost:3000/api/image/get/254" alt="Avatar" class="avatar">
+                <div class="message">
+                  <span class="name">Nombre 2</span>
+                  <p >¡Qué lindo! Me encanta</p>
+                </div>
+              </div>
+              -->
+              <!-- Agrega más comentarios aquí -->
+            </div>
+          </div>
+          <!-------->
         </div>
       </div>
     </div>

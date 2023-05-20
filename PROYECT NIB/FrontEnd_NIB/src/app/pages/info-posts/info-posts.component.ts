@@ -23,6 +23,8 @@ export class InfoPostsComponent {
   public date:string;
   public typeImage: string;
   public tags: string[] = [];
+  //-------------------
+  private userToken;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,6 +43,7 @@ export class InfoPostsComponent {
 
     /*----------SECURITY-----*/
     let token = sessionService.readToken();
+    this.userToken = token;
     const json = { token: token};
     this.sessionService.verifyToken(json).subscribe(
       data => {
@@ -83,6 +86,8 @@ export class InfoPostsComponent {
       }, error => {
         // Lógica para manejar errores
       });
+      /*--- Comments ---*/
+      this.updateComments();
     });
     let link = window.location.href;
     this.currentURL = link;
@@ -97,6 +102,52 @@ export class InfoPostsComponent {
       return "png";
     }
   }
+
+
+  public message:String = "";
+  public sendComment(){
+    if(this.isLoggedIn && this.userToken != null){
+      let id_post = -1;
+      try{
+        id_post = parseInt(this.id);
+      } catch {
+        console.log("ID POST INVALIDO");
+      }
+      if(this.message != ""){
+        this.postService.sendNewCommentforPost(this.userToken, id_post, this.message).subscribe(
+          response => {
+          console.log(response);
+            this.message = "";
+            this.updateComments();
+        }, error => {
+          // Lógica para manejar errores
+        });
+      }
+    }
+  }
+
+  public comments:any[] = [];
+  private updateComments (){
+      this.comments = [];
+      let id_post = -1;
+      try{
+        id_post = parseInt(this.id);
+      } catch {
+        console.log("ID POST INVALIDO");
+      }
+      this.postService.getCommentsforPost(id_post).subscribe(
+        response => {
+        console.log(response);
+          for(let comment of response){
+            console.log(comment)
+            this.comments.push(comment)
+          }
+      }, error => {
+        // Lógica para manejar errores
+      });
+  }
+
+
 
   private formmaterDate(fechaString:string){
     //const fechaString = '2023-05-14T16:30:01.863+00:00';

@@ -50,4 +50,17 @@ export class PostsService {
     return this.httpClient.get<any>(apiPostsCont)
   }
 
+
+  public sendNewCommentforPost(token_usuario :String, id_post:number, message:String){
+    const json = { token_usuario:token_usuario,id_post:id_post,message:message};
+    let apiPostsSave = "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/public/comments/save";
+    return this.httpClient.post<any>(apiPostsSave, json);//, { headers: headers }
+  }
+
+  public getCommentsforPost(id_post:number){
+    const json = {id_post:id_post};
+    let apiPostsSave = "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/public/comments/get";
+    return this.httpClient.post<any>(apiPostsSave, json);//, { headers: headers }
+  }
+
 }

@@ -165,3 +165,69 @@
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+/*============================COMENTARIOS==================================*/
+.chat-container {
+  background-color: #ffedf7;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Kawaii Font', cursive;
+  text-align: center;
+}
+
+.comment-input {
+  margin-bottom: 20px;
+}
+
+.comment-input-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.comment-textarea {
+  flex: 1;
+  height: 80px;
+  margin-right: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  resize: none;
+}
+
+.btn {
+  background-color: #ff7b7b;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.comment-list {
+  text-align: left;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.name {
+  font-weight: bold;
+  color: #ff7b7b;
+}
+
+.message {
+  background-color: #ffb6d1;
+  padding: 10px;
+  border-radius: 10px;
+}
