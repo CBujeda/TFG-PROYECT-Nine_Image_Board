@@ -36,8 +36,6 @@ public class PublicTags {
 	public ResponseEntity<List<Tag>> getUser() {
 		try {
 			List<Tag> a = tagserv.getRandomTags(10);
-			System.out.println("Aqui ha entrado");
-			
 			return new ResponseEntity<>(a, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(new ArrayList<Tag>(), HttpStatus.INTERNAL_SERVER_ERROR);
