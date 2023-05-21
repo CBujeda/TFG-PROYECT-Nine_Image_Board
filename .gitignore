@@ -1,3 +1,4 @@
 
 PROYECT NIB/FrontEnd_NIB/node_modules/*
 PROYECT NIB/Backend_NIB/staticBBDD/*.db
+PROYECT NIB/Compiled/staticBBDD/*db
