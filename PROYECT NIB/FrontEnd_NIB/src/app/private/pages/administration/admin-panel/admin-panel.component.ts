@@ -12,11 +12,14 @@ export class AdminPanelComponent {
 
   public enabled_admin_panel = false;
 
+  private token;
+
   constructor(
     private confappsevice: ConfAPPService,
     private sessionService: SessionTokenService,
   ){
     let token = sessionService.readToken();
+    this.token = token;
     const json = { token: token};
     this.sessionService.verifyAdmin(json).subscribe(
       data => {
@@ -42,7 +45,19 @@ export class AdminPanelComponent {
     let nameAPP = this.nameAPP;
     let app_short_name = this.nameAPPshort;
 
-    let json = {nameAPP: nameAPP, app_short_name: app_short_name}
+    let json = {token:this.token, appname: nameAPP, appshortname: app_short_name}
+    this.confappsevice.updateConf(json).subscribe(
+      data => {
+        let isCorrect = data;
+        console.log(isCorrect);
+      },
+      err =>{
+        console.error(err);
+      }
+    );
+
+
+
     console.log(JSON.stringify(json));
   }
 

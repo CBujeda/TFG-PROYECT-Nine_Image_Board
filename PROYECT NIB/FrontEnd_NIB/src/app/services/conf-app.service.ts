@@ -14,4 +14,9 @@ export class ConfAPPService {
                     +"/api/public/conf/get?"+`type=${type}`;
     return this.httpClient.get<any>(apiNameApp);
   }
+
+  public updateConf(json: any){
+    let apiPostsCont = "http://" + backserv.ipnibbackserver + ":" + backserv.portnibbackserver + "/api/private/conf/change";
+    return this.httpClient.post<any>(apiPostsCont,json)
+  }
 }
