@@ -43,6 +43,7 @@ public class Main {
 					String MySql_user = prop.getProperty("MySql_user");
 					String MySql_pass = prop.getProperty("MySql_passs");
 					String NIB_B_Version = prop.getProperty("NIB_B_Version");
+					String NIB_DEV_OPTION = prop.getProperty("DEV");
 					
 					String ngPath = prop.getProperty("ngPath");
 					String javaPath = prop.getProperty("javaPath");
@@ -57,7 +58,14 @@ public class Main {
 					if(MySql_bbdd == null) {MySql_bbdd = "ninbooru";}
 					if(MySql_user == null) {MySql_user = "root";}
 					if(MySql_pass == null) {MySql_pass = "root";}
-					if(NIB_B_Version == null) {NIB_B_Version = "0.0.1-SNAPSHOT";}
+					if(NIB_B_Version == null) {NIB_B_Version = "0.1.1-SNAPSHOT";}
+					boolean dev = false;
+					if(NIB_DEV_OPTION == null) {
+						dev = false;
+					}else if(NIB_DEV_OPTION.equalsIgnoreCase("true")) {
+						dev = true;
+					}
+					
 					
 					System.out.println("[GEN] back.properties");
 					String genPropBack = ""
@@ -65,11 +73,16 @@ public class Main {
 							+ "spring.datasource.url=jdbc:mysql://"+MySql_ip+":"+MySql_port+"/"+MySql_bbdd+"\n"
 							+ "spring.datasource.username="+MySql_user+"\n"
 							+ "spring.datasource.password="+MySql_pass+"\n"
-							+ "spring.datasource.driver-class-name=com.mysql.jdbc.Driver"+"\n"
-							+ "pring.jpa.database-platform = org.hibernate.dialect.MySQL5Dialect"+"\n"
+							+ "spring.jpa.properties.hibenate.dialect=org.hibenate.dialect.MySQL8Dialect"+"\n"
 							+ "spring.jpa.generate-ddl=true"+"\n"
 							+ "spring.jpa.hibernate.ddl-auto=update"+"\n";
 					
+					if(dev == true) {
+						genPropBack = genPropBack + "\n"
+								+ "spring.jpa.show-sql=true "+"\n"
+								+ "spring.jpa.properties.hibenate.format_sql=true "+"\n";
+					}
+					System.out.println("Configuración aplicada back: " + genPropBack);
 					// Back props
 					Formatter fo = new Formatter(backprops);
 					fo.format(genPropBack);
