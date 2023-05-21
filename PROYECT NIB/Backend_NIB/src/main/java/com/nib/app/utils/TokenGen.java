@@ -4,6 +4,10 @@ import java.security.SecureRandom;
 
 public class TokenGen {
     
+	/*
+	 * Pre:
+	 * Post: Caracteres token
+	 */
     private final String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private final String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
     private final String NUMBERS = "0123456789";
@@ -17,6 +21,10 @@ public class TokenGen {
 		// TODO Auto-generated constructor stub
 	}
 
+    /*
+     * Pre:
+     * Post: Metodo el cual genera un nuevo token
+     */
 	public String generate(int length) {
         StringBuilder sb = new StringBuilder(length);
         
@@ -43,6 +51,10 @@ public class TokenGen {
         return new String(chars);
     }
     
+	/*
+	 * Pre:
+	 * Post: Metodo el cual obtiene un caracter aleatorio
+	 */
     private char getRandomChar(String characters) {
         int index = random.nextInt(characters.length());
         return characters.charAt(index);

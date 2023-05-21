@@ -1,6 +1,10 @@
 package com.nib.app.objects;
 
+/*
+ * Objeto el cual almacena una imagen en base64
+ */
 public class Image {
+	
 	private String title;
 	private String tags;
 	private String base64Img;

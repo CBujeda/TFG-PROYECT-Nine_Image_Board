@@ -18,6 +18,9 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
+/*
+ * Entidad de roles
+ */
 @Entity
 @Table(name = "roles")
 public class Rol implements Serializable {

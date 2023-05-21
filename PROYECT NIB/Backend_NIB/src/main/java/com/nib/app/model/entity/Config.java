@@ -9,6 +9,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/*
+ * Entidad de configuracion
+ */
 @Entity
 @Table(name = "config")
 public class Config implements Serializable{

@@ -27,7 +27,10 @@ public class PublicPosts {
 	@Autowired 
 	private PostService post_serv;
 	
-	//"http://localhost:3000","http://localhost:8080","http://localhost:4200"
+	/*
+	 * Pre:
+	 * Post: metodo el cual devuelve el numero de posts
+	 */
 	@GetMapping("/count")
 	public ResponseEntity<Long> getCount() {
 		try {
@@ -37,6 +40,10 @@ public class PublicPosts {
 		}
 	}
 	
+	/*
+	 * Pre:
+	 * post: Metodo el cual devuelve los posts paginados
+	 */
 	@GetMapping("/postsLimited")
 	public ResponseEntity<Page<Post>> getPosts( 
 												@RequestParam(defaultValue = "0") int page,
@@ -60,7 +67,10 @@ public class PublicPosts {
 		}
 	}
 	
-	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual devuelve los posts filtrados por tags
+	 */
 	@GetMapping("/postsfiterbytag")
 	public ResponseEntity<Page<Post>> getPostsByTag( 
 												@RequestParam(defaultValue = "0") int page,

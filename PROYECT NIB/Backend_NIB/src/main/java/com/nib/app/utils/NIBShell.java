@@ -10,7 +10,10 @@ public class NIBShell {
 	public void print() {
 		
 	}
-	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual imprime por consola infromacion.
+	 */
 	public void printInfo(String str) {
 	    String YELLOW_BOLD = "\033[1;33m"; // YELLOW
 	    String PURPLE_BOLD = "\033[1;35m"; // PURPLE
@@ -18,7 +21,10 @@ public class NIBShell {
 	    String date = java.time.Clock.systemUTC().instant().toString();
 		System.out.println(date.substring(0, date.length()-1)+"  "+YELLOW_BOLD+"[NIB] "+PURPLE_BOLD+"    --- "+RESET + str);
 	}
-	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual imprime por consola datos SQL
+	 */
 	public void printInfoSql(String str) {
 	    String YELLOW_BOLD = "\033[1;33m"; // YELLOW
 	    String CYAN	= "\u001B[36m";

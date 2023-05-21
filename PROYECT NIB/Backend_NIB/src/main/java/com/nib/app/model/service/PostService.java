@@ -9,6 +9,9 @@ import com.nib.app.model.entity.Post;
 import com.nib.app.objects.BinaryFile;
 import com.nib.app.objects.Image;
 
+/*
+ * Servicios de posts
+ */
 public interface PostService {
 
 	public long getPostCount();

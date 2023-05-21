@@ -10,6 +10,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
+/*
+ * Entidad de insultList
+ * 		// Implementacion en futuras versiones
+ */
 @Entity
 @Table(name = "InsultList")
 public class InsultList  implements Serializable{

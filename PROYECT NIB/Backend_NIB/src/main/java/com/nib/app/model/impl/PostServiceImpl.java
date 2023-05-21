@@ -25,6 +25,9 @@ import com.nib.app.objects.BinaryFile;
 import com.nib.app.objects.Image;
 import com.nib.app.utils.sqLite.SLUtils;
 
+/*
+ * Implementacion de Post Service
+ */
 @Service
 public class PostServiceImpl implements PostService {
 
@@ -37,21 +40,33 @@ public class PostServiceImpl implements PostService {
 	@Autowired
 	private TagService tag_service;
 	
+	/*
+	 * Pre:
+	 * Post: Metodo para obtener la cantidad de post existentes
+	 */
 	@Override
 	public long getPostCount() {
 		return post_dao.count();
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo el cual obtene las paginas de los posts
+	 */
 	@Override
 	public Page<Post> getPaginasPosts(Pageable pageable) {
 		return post_dao.findAll(pageable);
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo el cual almacena un Post el las bases de datos
+	 */
 	@Override
 	public boolean savePost(Image image) {
 		String[] base64_str = image.getBase64Img().split("base64,");
 		if(base64_str.length == 2) {
-			System.out.println(image.getToken());
+			//System.out.println(image.getToken());
 			try {
 				byte[] imageBytes = Base64.getDecoder().decode(base64_str[1]);
 				Usuario u = usuario_service.findUsernameByToken(image.getToken());
@@ -83,31 +98,28 @@ public class PostServiceImpl implements PostService {
 						}
 						Post ps2 = savePostDatBBDD(ps);
 						// codigo almacenar en la localBBDD
-						System.out.println(ps2.getId_post());
+						//System.out.println(ps2.getId_post());
 						if(ps2 != null) {
 							savePostLocalBBDD(imageBytes,ps2.getId_post(),u.getUsername());
 						}
-						
-						
 						return true;
 					}
 				}else {
-					System.out.println("user null");
+					System.err.println("[ERROR] [si831] - user null");
 				}
-				
-				
-				
 			}catch(Exception e) {
 				System.err.println("[ERROR] [si001] - Error al decodificar la base de una imagen \n" + e.toString());
 			}
-		System.out.println("Base ok");
+		//System.out.println("Base ok");
 		
 		}
-		
-		
 		return false;
 	}
 	
+	/*
+	 * Pre:
+	 * Post: Metodo para almacenar los binarios en la bbdd local
+	 */
 	private boolean savePostLocalBBDD(byte[] imageBytes,Long id_img,String username) {
 		SLUtils s = new SLUtils();
 		s.getConnection(username);
@@ -121,6 +133,10 @@ public class PostServiceImpl implements PostService {
 		
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo para almacenar los datos de los posts en la base de datos
+	 */
 	@Override
 	public Post savePostDatBBDD(Post post) {
 		try {
@@ -131,6 +147,10 @@ public class PostServiceImpl implements PostService {
 		
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo para Obtener los binarios por el id del post
+	 */
 	@Override
 	public BinaryFile getImageById_Post(Long id) {
 		Optional<Post> p = post_dao.findById(id);
@@ -151,6 +171,10 @@ public class PostServiceImpl implements PostService {
 		}
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo para obtener los posts filtrados por los tags
+	 */
 	@Override
 	public Page<Post> getPaginasToPostsByTag(Pageable pageable, String tag) {
 		List<Post> posts = post_dao.findPostsByTag(tag);
@@ -163,6 +187,10 @@ public class PostServiceImpl implements PostService {
 		return pages;
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo para Obtener la info de un post post su id
+	 */
 	@Override
 	public Post getPostById(Long id) {
 		Optional<Post> p = post_dao.findById(id);

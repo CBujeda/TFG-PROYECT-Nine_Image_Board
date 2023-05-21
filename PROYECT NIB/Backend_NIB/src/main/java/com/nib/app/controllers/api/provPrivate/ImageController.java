@@ -27,6 +27,10 @@ public class ImageController {
 	@Autowired
 	private PostService postService;
 	
+	/*
+	 * Pre:
+	 * Post: Metodo para obtener una imagen de la base de datos
+	 */
 	@GetMapping("/get/{id_image}")
 	 public ResponseEntity<?> getImage(
 			 @PathVariable("id_image") Long id_image
@@ -42,7 +46,7 @@ public class ImageController {
             
             // Crea una respuesta HTTP con la imagen y los encabezados adecuados
             HttpHeaders headers = new HttpHeaders();
-            if(f.getFormat().contains("png")) {
+            if(f.getFormat().contains("png")) {			// Verifiacion de formato
             	headers.setContentType(MediaType.IMAGE_PNG);
             }else if(f.getFormat().contains("jpg")) {
             	headers.setContentType(MediaType.IMAGE_JPEG);
@@ -61,6 +65,8 @@ public class ImageController {
         }
     }
 	/*
+	 * 
+	 // Metodo deprecado
     @PostMapping("/save")
     public ResponseEntity<?> saveImage(@RequestBody PO data) {
         try {

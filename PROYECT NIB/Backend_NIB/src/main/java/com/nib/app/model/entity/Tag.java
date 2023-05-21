@@ -11,7 +11,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
-
+/*
+ * Entidad de Tag
+ */
 @Entity
 @Table(name = "tag")
 public class Tag implements Serializable {

@@ -21,6 +21,11 @@ public class PublicConf {
 	@Autowired
 	private ConfService confserv;
 	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual devuelve el nombre de la aplicación
+	 * 		 // Metodo deperecado a eliminar en futuras versiones
+	 */
 	@GetMapping("/name")
 	public ResponseEntity<String> getName() {
 		try {
@@ -35,6 +40,10 @@ public class PublicConf {
 		}
 	}
 	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual obtiene una configuracion de la aplicacion
+	 */
 	@GetMapping("/get")
 	public ResponseEntity<String> getConf(@RequestParam(defaultValue = "app_name") String type) {
 		try {

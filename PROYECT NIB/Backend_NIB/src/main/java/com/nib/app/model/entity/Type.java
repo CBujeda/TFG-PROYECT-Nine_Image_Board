@@ -11,7 +11,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
-
+/*
+ * Entidad de tipo de dato
+ *	// Entidad deprecada a eliminacion en futuras versiones
+ */
 @Entity
 @Table(name = "type")
 public class Type implements Serializable {

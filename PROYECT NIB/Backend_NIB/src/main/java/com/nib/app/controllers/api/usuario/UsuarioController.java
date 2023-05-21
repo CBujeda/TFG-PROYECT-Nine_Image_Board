@@ -31,18 +31,26 @@ public class UsuarioController {
 	@Autowired
 	private RolService rolService;
 	
-	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual devuelve la informacion de un usuario
+	 * 		 siempre y cuando sea este mismo usuario
+	 */
 	@PostMapping("/get")
 	public Usuario getUser(@RequestBody PO token) {
-		System.out.println("Entra usuario");
 		Usuario tmp = usuarioService.findUsernameByToken(token.getToken());
-		System.out.println(tmp);
 		tmp.setPassword(null);
 		tmp.setToken(null);
 	
 		return tmp;
 	}
 	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual actualiza los datos de un usuario
+	 * Nota: Se debe mejorar el sistema de almacenamiento de
+	 *       contraseña en fututas veriones.
+	 */
 	@PostMapping("/update")
 	public ResponseEntity<String> updateUser(@RequestBody Usuario usuario) {
 		boolean correct = false;
@@ -50,17 +58,17 @@ public class UsuarioController {
 			String nombre = usuario.getNombre();
 			String apellido = usuario.getApellido();
 			String newPassword = usuario.getPassword();
-			System.out.println(newPassword);
+			//System.out.println(newPassword);
 			String image = usuario.getImgProfile();
 			String token = usuario.getToken();
 			Usuario lu = usuarioService.findUsernameByToken(token);
 			
 			if(lu != null) {
-				System.out.println("Ha entrado :3");
+				//System.out.println("Ha entrado :3");
 				if(newPassword != null && !newPassword.equalsIgnoreCase(" ")) {
 					PasswordEncryptor encryptor = new PasswordEncryptor();
 					lu.setPassword(encryptor.encrypt(newPassword));
-					System.out.println("Ha entrado :3");
+					//System.out.println("Ha entrado :3");
 				}
 				lu.setImgProfile(image);
 				lu.setApellido(apellido);
@@ -78,6 +86,8 @@ public class UsuarioController {
 		return "{\"value\":\""+value+"\"}";
 	}
 	/*
+
+	// Deprecated
 	@DeleteMapping("/delete_{userID}")
 	public boolean deleteUser(@PathVariable("userID") String userID) {
 		long id = -1L;
@@ -100,8 +110,8 @@ public class UsuarioController {
 	public Usuario saveNewUser(@RequestBody Usuario usuario){//@RequestBody Usuario usuario) {
 		
 		Usuario tmp = null;
-		System.out.println("HOALAAA");
-		System.out.println(usuario);
+		//System.out.println("HOALAAA");
+		//System.out.println(usuario);
 		if(usuario != null) {
 
 			System.out.println(usuario.getNombre());

@@ -20,7 +20,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-
+/*
+ * Entidad de post
+ */
 @Entity
 @Table(name = "post")
 public class Post implements Serializable{

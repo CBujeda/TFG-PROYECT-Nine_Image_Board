@@ -15,6 +15,12 @@ public class SLUtils {
 	private String id_bbdd;
 	
 	private final String mainTable = "Master";
+	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual crea una conexion y crea una
+	 * 		 bbdd local en caso de no existir
+	 */
     public  Connection getConnection(String id_bbdd) {
         Connection connection = null;
         this.id_bbdd = id_bbdd;
@@ -32,7 +38,11 @@ public class SLUtils {
         this.connection = connection;
         return connection;
     }
-
+    
+    /*
+     * Pre:
+     * Post: Metodo el cual se encarga de generar las tablas de la base de datos local
+     */
     public void createTables() throws SQLException {
     		this.printInfoSql("Creando Tablas de NIB BBDD 'Id = " + this.id_bbdd +"'" );
 			PreparedStatement statement = this.connection.prepareStatement(
@@ -44,6 +54,10 @@ public class SLUtils {
 			statement.executeUpdate();
     }
     
+    /*
+     * Pre:
+     * Post: Metodo el cual se encarga de al almacenar los binarios en la tabla
+     */
     public void savePost(byte[] imageBytes,Long ext) throws SQLException {
     	PreparedStatement pstmt = this.connection.prepareStatement(
     			"INSERT INTO "+mainTable+" (Binary,id_img) VALUES (?,?)"
@@ -55,6 +69,10 @@ public class SLUtils {
     	this.connection.close();
     }
     
+    /*
+     * Pre:
+     * Post: Metodo el cual obtiene un post (binarios) de la bbdd mediante el id alamcenado
+     */
     public byte[] getPostByIdPost(Long id) {
     	try {
 			PreparedStatement pstmt = 
@@ -74,9 +92,10 @@ public class SLUtils {
 		}
     }
     
-    
-    
-    
+    /*
+     * Pre:
+     * Post: Metodo con el cual cerramos una conexion
+     */
     public void closeConexion() {
     	try {
 			this.connection.close();
@@ -86,6 +105,11 @@ public class SLUtils {
 		}
     }
     
+    /*
+     * Pre:
+     * Post: Metodo con el cual imprimimos por consola informacion
+     *       del sistema sqlLite
+     */
     public void printInfoSql(String str) {
     	new NIBShell().printInfoSql(str);
     }

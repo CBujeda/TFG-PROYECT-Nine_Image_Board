@@ -26,6 +26,10 @@ public class AuthController {
 	@Autowired
 	private RolService rolService;
 	
+	/*
+	 * Pre:
+	 * Post: Metodo para autenetificar y registrar un usuario
+	 */
 	@PostMapping("/register")
 	public ResponseEntity<String> authRegister(@RequestBody Usuario usuario) {
 		try {
@@ -35,11 +39,11 @@ public class AuthController {
 			usuario.setImgProfile("image.png");	
 			boolean u = usuarioServiceImpl.saveUsuario(usuario);
 			if(u == false) {
-				System.out.println("Hola");
+				//System.out.println("Hola");
 				return new ResponseEntity<>(formatJson("ERROR"), HttpStatus.OK);
 				
 			}
-			System.out.println(usuario.toString());
+			//System.out.println(usuario.toString());
 		
 			return new ResponseEntity<>(formatJson("OK"), HttpStatus.OK);
 		} catch (Exception e) {
@@ -47,6 +51,10 @@ public class AuthController {
 		}
 	}
 	
+	/*
+	 * Pre:
+	 * Post: metodo para loguear a un usuario
+	 */
 	@PostMapping("/login")
 	public ResponseEntity<String> authLogin(@RequestBody Usuario usuario) {
 		try {
@@ -57,11 +65,14 @@ public class AuthController {
 		}
 	}
 	
-	
+	/*
+	 * Pre:
+	 * Post: Metodo para verificar el token de un usuario
+	 */
 	@PostMapping("/verifyToken")
 	public ResponseEntity<String> veifyToken(@RequestBody PO token){
 		try {
-			System.out.println(token.getToken());
+			//System.out.println(token.getToken());
 			boolean result = usuarioServiceImpl.verifyToken(token.getToken());
 			return new ResponseEntity<String>(formatJson(result), HttpStatus.OK);
 		} catch (Exception e) {
@@ -74,17 +85,24 @@ public class AuthController {
 		return "{\"value\":\""+value+"\"}";
 	}
 	
-	
+	/*
+	 * Pre:
+	 * Post: Metodo para verificar a un administrador
+	 */
 	@PostMapping("/verifyAdmin")
 	public ResponseEntity<String> veifyAdmin(@RequestBody PO token){
 		try {
 			boolean result = rolService.isthisUserAdminByToken(token.getToken());
-			System.out.println(result);
+			//System.out.println(result);
 			return new ResponseEntity<String>(formatJson(result), HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(formatJson(false), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
+	/*
+	 * Nota:
+	 *		En futuras verisiones se añadira el reseteo de token.
+	 */
 
 }

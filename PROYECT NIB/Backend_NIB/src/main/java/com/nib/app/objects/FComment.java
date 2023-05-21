@@ -9,6 +9,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+/*
+ * Objeto el cual almacena un comentario de front
+ */
 public class FComment {
 
 	private Long id_comment;
@@ -19,7 +22,7 @@ public class FComment {
 	
 	private String message;
 	
-	private Date date;
+	private Date date;	// Creacion del comentario
 
 	public FComment() {
 		super();

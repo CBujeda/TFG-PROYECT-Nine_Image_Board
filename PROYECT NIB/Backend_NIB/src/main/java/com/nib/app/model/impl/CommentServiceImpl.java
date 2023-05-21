@@ -16,6 +16,9 @@ import com.nib.app.model.service.PostService;
 import com.nib.app.model.service.UsuarioService;
 import com.nib.app.objects.FComment;
 
+/*
+ * Implementacion del servicio de comentarios
+ */
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -28,6 +31,10 @@ public class CommentServiceImpl implements CommentService {
 	@Autowired
 	private UsuarioService usuarioService;
 	
+	/*
+	 * Pre:
+	 * Post: Metodo para almacenar un comentario
+	 */
 	@Override
 	public boolean saveComment(FComment comment) {
 		Comment c = new Comment();
@@ -50,6 +57,10 @@ public class CommentServiceImpl implements CommentService {
 		return true;
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo el cual devuelve una lista de comentarios por su post
+	 */
 	@Override
 	public List<FComment> getCommentsByPostId(Long postId) {
 		List<Comment> c = commentDAO.findCommentsByIdPost(postId);
@@ -65,10 +76,6 @@ public class CommentServiceImpl implements CommentService {
 					comment.getMessage(), 
 					comment.getDate()));
 		}
-		
-		
 		return fc;
 	}
-
-	
 }

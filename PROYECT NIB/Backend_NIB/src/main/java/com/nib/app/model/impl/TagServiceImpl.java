@@ -11,23 +11,40 @@ import org.springframework.stereotype.Service;
 import com.nib.app.model.dao.usuario.TagDAO;
 import com.nib.app.model.entity.Tag;
 import com.nib.app.model.service.TagService;
+
+/*
+ * Implementacion de servicio de tags
+ */
+
 @Service
 public class TagServiceImpl implements TagService {
 
 	@Autowired
 	private TagDAO tagdao;
  	
+	/*
+	 * Pre:
+	 * Post: Metodo con el cual obtenemos tags aleatorias
+	 */
 	@Override
 	public List<Tag> getRandomTags(int limit) {
 		return tagdao.getRandomerTag(limit);
 	}
 	
+	/*
+	 * Pre:
+	 * Post: Metodo con el cual obtenemos un page de tags
+	 */
 	@Override
 	public Page<Tag> getPaginasTags(Pageable pageable) {
 		return tagdao.findAll(pageable);
 		
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo con el cual buscamos una tag por su nombre
+	 */
 	@Override
 	public Tag findByName(String name) {
 		Optional<Tag> tag = tagdao.findByName(name);
@@ -39,6 +56,10 @@ public class TagServiceImpl implements TagService {
 		
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo con el cual almacenamos una tag
+	 */
 	@Override
 	public Tag saveTag(Tag tag) {
 		try {
@@ -49,6 +70,10 @@ public class TagServiceImpl implements TagService {
 		}
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo con el cual obenemos las tags de un post
+	 */
 	@Override
 	public List<Tag> getTagsByIdPost(Long id) {
 		List<Tag> tags = tagdao.getTagsByPostId(id);

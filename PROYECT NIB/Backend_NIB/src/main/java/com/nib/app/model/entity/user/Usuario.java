@@ -21,10 +21,11 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-
+/*
+ * Entidad de usuario
+ */
 @Entity
 @Table(name = "usuario")
-
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = -3256103979765596155L;

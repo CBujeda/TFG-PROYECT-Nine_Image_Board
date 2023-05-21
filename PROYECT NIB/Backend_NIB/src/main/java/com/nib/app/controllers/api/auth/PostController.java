@@ -32,7 +32,10 @@ public class PostController {
 	@Autowired
 	private TagService tagService;
 	
-
+	/*
+	 * Pre:
+	 * Post: Metodo para crear un nuevo post
+	 */
     @PostMapping("/postnew")
     public ResponseEntity<?> create(
             @RequestBody Image file
@@ -47,7 +50,10 @@ public class PostController {
 		}
     }
     
-    
+    /*
+     * Pre:
+     * Post: Metodo para obtener la informacion de un post
+     */
     @GetMapping("/getPostInfo")
     public ResponseEntity<?> getPostInfo(@RequestParam("id_post") String id){
     	try {
@@ -68,6 +74,10 @@ public class PostController {
 		}
     }
     
+    /*
+     * Pre:
+     * Post: Metodo para obtener las tags de un post
+     */
     @GetMapping("/getTagsByPost")
     public ResponseEntity<?> getTagsByPost(@RequestParam("id_post") String id){
     	try {

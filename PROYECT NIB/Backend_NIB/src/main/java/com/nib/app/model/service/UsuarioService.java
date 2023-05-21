@@ -6,7 +6,9 @@ import java.util.List;
 import com.nib.app.model.entity.user.Rol;
 import com.nib.app.model.entity.user.Usuario;
 
-
+/*
+ * Servicio de usuarios
+ */
 public interface UsuarioService {
 
 

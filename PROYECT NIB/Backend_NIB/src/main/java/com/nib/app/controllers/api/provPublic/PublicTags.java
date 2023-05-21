@@ -28,6 +28,10 @@ public class PublicTags {
 	@Autowired
 	private TagService tagserv;
 	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual devuelve 10 tags random
+	 */
 	@GetMapping("/random10")
 	public ResponseEntity<List<Tag>> getUser() {
 		try {
@@ -40,8 +44,12 @@ public class PublicTags {
 		}
 	}
 	
-	@GetMapping("/tagsLimited")
-	public ResponseEntity<Page<Tag>> getPosts( 
+	/*
+	 * Pre:
+	 * Post: Metodo el cual devuelve una lista paginada de tags
+	 */
+	@GetMapping("/tagsLimited")		// Modifyed name of the metodth
+	public ResponseEntity<Page<Tag>> getTags( 
 												@RequestParam(defaultValue = "0") int page,
 												@RequestParam(defaultValue = "10") int size,
 												@RequestParam(defaultValue = "name") String order,

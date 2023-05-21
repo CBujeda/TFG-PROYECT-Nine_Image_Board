@@ -7,6 +7,9 @@ import java.util.Base64;
 
 public class PasswordEncryptor {
 	
+	/*
+	 * Varoables de configuracion del encriptador
+	 */
     private final int SALT_LENGTH = 16;
     private final int ITERATIONS = 100000;
     private final int KEY_LENGTH = 256;
@@ -46,7 +49,7 @@ public class PasswordEncryptor {
     }
     
     /*
-     * Metodo el cual verifica si la contraseña coinciden
+     * Metodo el cual verifica si las contraseñas coinciden
      */
     public boolean checkPassword(String password, String encryptedPassword) {
         byte[] saltedPassword = Base64.getDecoder().decode(encryptedPassword);

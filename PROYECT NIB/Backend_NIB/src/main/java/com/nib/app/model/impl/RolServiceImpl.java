@@ -10,12 +10,19 @@ import com.nib.app.model.dao.usuario.RolDAO;
 import com.nib.app.model.entity.user.Rol;
 import com.nib.app.model.service.RolService;
 
+/*
+ * Implementacion del servicio de roles
+ */
 @Service
 public class RolServiceImpl implements RolService {
 
 	@Autowired
 	private RolDAO roldao;
 	
+	/*
+	 * Pre:
+	 * Post: Metodo con el cual almacenamos un rol en la BBDD
+	 */
 	@Override
 	public Rol saveRol(Rol rol) {
 		Rol localRol = findByName(rol);
@@ -32,6 +39,10 @@ public class RolServiceImpl implements RolService {
 		return localRol;
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo el cual devuelve una lista de roles
+	 */
 	@Override
 	public List<Rol> saveRolList(List<Rol> roles) {
 		List<Rol> localRoles = new ArrayList<Rol>();
@@ -42,7 +53,12 @@ public class RolServiceImpl implements RolService {
 		}
 		return localRoles;
 	}
-
+	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual busca un rol por su nombre
+	 * 		 con un objeto de tipo Rol
+	 */
 	@Override
 	public Rol findByName(Rol rol) {
 		Rol r = findByName(rol.getNombre());
@@ -52,6 +68,11 @@ public class RolServiceImpl implements RolService {
 			return r;
 		}
 	}
+	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual busca un rol por su nombre
+	 */
 	@Override
 	public Rol findByName(String name) {
 		Rol r = roldao.findByNombre(name);
@@ -62,6 +83,10 @@ public class RolServiceImpl implements RolService {
 		}
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo el cual verifica si existe un rol
+	 */
 	@Override
 	public boolean isExistsRolByName(Rol rol) {
 		if(findByName(rol) != null) {
@@ -71,6 +96,10 @@ public class RolServiceImpl implements RolService {
 		}
 	}
 	
+	/*
+	 * Pre:
+	 * Post: Metodo el cual devuelve el rol default
+	 */
 	@Override
 	public Rol getDefaultRol() {
 		Rol r = findByName("USER");
@@ -81,6 +110,10 @@ public class RolServiceImpl implements RolService {
 		}
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo el cual verifica si un usuario es administrador
+	 */
 	@Override
 	public boolean isthisUserAdminByToken(String token) {
 		boolean isAdmin = false;

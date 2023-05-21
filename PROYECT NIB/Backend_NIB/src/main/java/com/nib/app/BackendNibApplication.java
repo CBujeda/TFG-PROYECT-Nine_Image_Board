@@ -19,6 +19,13 @@ import com.nib.app.utils.NIBShell;
 
 import jakarta.transaction.Transactional;
 
+/*
+ * NIB BACKEND APPLICATION
+ * --------------------------------
+ * Created by Clara Bujeda Muñoz 
+ * 		Date: 2023
+ * 		email: clarabujedamunoz@gmail.com 
+ */
 @SpringBootApplication
 public class BackendNibApplication implements CommandLineRunner {
 
@@ -36,6 +43,10 @@ public class BackendNibApplication implements CommandLineRunner {
 		SpringApplication.run(BackendNibApplication.class, args);
 	}
 
+	/*
+	 * Pre:
+	 * Post: Metodo de preconfiguración
+	 */
 	@Transactional
 	@Override
 	public void run(String... args) throws Exception {
@@ -69,13 +80,20 @@ public class BackendNibApplication implements CommandLineRunner {
 		}
 	}
 	
-	
+	/*
+	 * Pre:
+	 * Post: Metodo con el cual almacenamos un nuevo rol en la BBDD
+	 */
 	private void addRol(Rol rol) {
 		if(!rolService.isExistsRolByName(rol)) {
 			rolService.saveRol(rol);
 		}
 	}
 	
+	/*
+	 * Pre:
+	 * Post: Metodo con el cual imprimimos por consola.
+	 */
 	public void printInfo(String str) {
 		new NIBShell().printInfo(str);
 		/*

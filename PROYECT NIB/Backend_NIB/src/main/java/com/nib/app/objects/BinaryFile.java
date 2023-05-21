@@ -1,5 +1,9 @@
 package com.nib.app.objects;
 
+/*
+ * Objeto el cual almacena un dato binario
+ * como imagenes, videos, etc (Formatos MIME)
+ */
 public class BinaryFile {
 
 	private byte[] data;

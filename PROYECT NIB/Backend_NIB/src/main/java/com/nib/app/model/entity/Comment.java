@@ -13,6 +13,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+/*
+ * Entidad de comentarios
+ */
 @Entity
 @Table(name = "comments")
 public class Comment {

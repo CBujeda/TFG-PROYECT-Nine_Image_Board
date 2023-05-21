@@ -7,7 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.nib.app.model.entity.Tag;
-
+/*
+ * Servicio de tags
+ */
 public interface TagService {
 
 	public List<Tag> getRandomTags(int limit);

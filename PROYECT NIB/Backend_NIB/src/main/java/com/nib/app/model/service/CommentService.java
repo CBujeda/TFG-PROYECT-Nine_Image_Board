@@ -5,6 +5,9 @@ import java.util.List;
 import com.nib.app.model.entity.Comment;
 import com.nib.app.objects.FComment;
 
+/*
+ * Servicio de comentarios
+ */
 public interface CommentService {
 
 	public boolean saveComment(FComment comment);

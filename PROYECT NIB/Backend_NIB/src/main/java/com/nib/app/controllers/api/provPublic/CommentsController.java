@@ -24,6 +24,10 @@ public class CommentsController {
 	@Autowired
 	private CommentService commentService;
 	
+	/*
+	 * Pre:
+	 * Post: Controlador para almacenar un nuevo comentario
+	 */
 	@PostMapping("/save")
     public ResponseEntity<?> create(
             @RequestBody FComment fcomment
@@ -38,18 +42,22 @@ public class CommentsController {
 		}
     }
 	
-	
+	/*
+	 * Pre:
+	 * Post: Metodo para obtener una lista de comnetarios de un post
+	 */
 	@PostMapping("/get")
     public ResponseEntity<?> getComments(
             @RequestBody Post p
     ){
     	try {
-    		System.out.println(p.getId_post());
+    		//System.out.println(p.getId_post());
     		List<FComment> comments = commentService.getCommentsByPostId(p.getId_post());
-    		System.out.println("XD"	);
+    		//System.out.println("XD"	);
+    		/*
     		for (FComment comment : comments) {
     			System.out.println(comment.toString());
-    		}
+    		}*/
     		//boolean result = commentService.saveComment(fcomment);
     		return new ResponseEntity<List<FComment>>(comments,HttpStatus.CREATED);
     	} catch (Exception e) {
