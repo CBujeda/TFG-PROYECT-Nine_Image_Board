@@ -23,6 +23,6 @@ echo '---'                `----'
 echo 	Power by SpringBoot
 echo [95m 
 
-"C:\Program Files\Java\jdk-17\bin\java.exe" -jar Backend_NIB-0.0.1-SNAPSHOT.jar --spring.config.location=back.properties
+"C:\Program Files\Java\jdk-17\bin\java.exe" -jar Backend_NIB-0.1.1-SNAPSHOT.jar --spring.config.location=back.properties
 pause > nul 
 exit
