@@ -12,7 +12,8 @@
 |                     | Version  |                                                                    |
 | --------------------- | ---------- | -------------------------------------------------------------------- |
 | Java                | 17       | ([Download](https://adoptium.net/es/temurin/releases/?version=17)) |
-| Node js             | v18.12.0 | ([Download](https://nodejs.org/dist/v18.12.0))              |
+| MySql               | 8        |                                                                    |
+| Node js             | v18.12.0 | ([Download](https://nodejs.org/dist/v18.12.0))                     |
 | npm package manager | v8.19.2  |                                                                    |
 
 ## Uso e Instalación
@@ -24,6 +25,12 @@
     >
 * En Linux
   * Pendiente
+
+<b>Videos</b> </br>
+<a href="https://youtu.be/7KrkzgEfUC0">
+<img src="assets/20230524_135702_instalation-es.png" width="280" height="200" /><br>
+</a>
+
 
 ## Configuracion
 
