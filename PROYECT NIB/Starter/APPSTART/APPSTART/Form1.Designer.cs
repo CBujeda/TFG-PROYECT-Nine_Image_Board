@@ -43,8 +43,15 @@ namespace APPSTART
             this.panel2 = new System.Windows.Forms.Panel();
             this.shell = new System.Windows.Forms.Label();
             this.goConfig = new System.Windows.Forms.Button();
+            this.auto_install = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.test_node = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -126,9 +133,48 @@ namespace APPSTART
             // goConfig
             // 
             resources.ApplyResources(this.goConfig, "goConfig");
+            this.goConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.goConfig.Name = "goConfig";
-            this.goConfig.UseVisualStyleBackColor = true;
+            this.goConfig.UseVisualStyleBackColor = false;
             this.goConfig.Click += new System.EventHandler(this.goConfig_Click);
+            // 
+            // auto_install
+            // 
+            resources.ApplyResources(this.auto_install, "auto_install");
+            this.auto_install.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.auto_install.Name = "auto_install";
+            this.auto_install.UseVisualStyleBackColor = false;
+            this.auto_install.Click += new System.EventHandler(this.auto_install_Click);
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // panel3
+            // 
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.test_node);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.auto_install);
+            this.panel3.Name = "panel3";
+            // 
+            // test_node
+            // 
+            resources.ApplyResources(this.test_node, "test_node");
+            this.test_node.BackColor = System.Drawing.Color.LemonChiffon;
+            this.test_node.Name = "test_node";
+            this.test_node.UseVisualStyleBackColor = false;
+            this.test_node.Click += new System.EventHandler(this.test_node_Click);
+            // 
+            // panel4
+            // 
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.start_all);
+            this.panel4.Name = "panel4";
             // 
             // Form1
             // 
@@ -136,8 +182,6 @@ namespace APPSTART
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.goConfig);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.start_all);
             this.Controls.Add(this.Config_gen);
             this.Controls.Add(this.front_server);
             this.Controls.Add(this.StartBack);
@@ -145,6 +189,8 @@ namespace APPSTART
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -152,6 +198,10 @@ namespace APPSTART
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,6 +222,11 @@ namespace APPSTART
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label shell;
         private System.Windows.Forms.Button goConfig;
+        private System.Windows.Forms.Button auto_install;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button test_node;
     }
 }
 

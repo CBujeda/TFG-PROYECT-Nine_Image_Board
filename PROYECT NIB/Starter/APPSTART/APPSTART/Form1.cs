@@ -9,14 +9,15 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
 
 namespace APPSTART
 {
     public partial class Form1 : Form
     {
         Thread t0;
-        Thread t1;
-        Thread t2;
+
+        //private BackgroundWorker backgroundWorker;
 
         public Form1()
         {
@@ -32,50 +33,36 @@ namespace APPSTART
             start_all.Text = "START";
             addShell("Aplicación Iniciada");
         }
+
+        //-----------------------START APP
+
+        private void executebat(String path) {
+            string batFilePath = @"" + path + "";
+            Process process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.Arguments = "/c " + batFilePath;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.UseShellExecute = false;
+            process.Start();
+            process.WaitForExit();
+            int exitCode = process.ExitCode;
+            Console.WriteLine("Exit Code: " + exitCode);
+            addShell(" [ Exit Code ] " + exitCode);
+        }
+
         private void start_all_Click(object sender, EventArgs e)
         {
-            start_all.BackColor = Color.GreenYellow;
-            StartBack.BackColor = Color.GreenYellow;
-            front_server.BackColor = Color.GreenYellow;
-            Thread.Sleep(1000);
-            front_server.Text = "STARTED";
-            StartBack.Text = "STARTED";
-            start_all.Text = "STARTED";
-            start_all.Enabled = false;
-            StartBack.Enabled = false;
-            front_server.Enabled = false;
-            this.t0 = new Thread(() => ExecuteCommand("start \"\" configurator.bat"));
+            addShell("Scripts Iniciados");
+            this.t0 = new Thread(() => this.executebat("\"./Start Auto.bat\""));
             this.t0.Start();
-            this.t0.Join();
-            this.t1 = new Thread(() => ExecuteCommand("start \"\" \"./Start Backend.bat\""));
-            this.t1.Start();
-            this.t2 = new Thread(() => ExecuteCommand("start \"\" \"./Start Front.bat\""));
-            this.t2.Start();
-            
-            while (true) {
-                Thread.Sleep(1000);
-                if (!this.t1.IsAlive && !this.t2.IsAlive) {
-                    break;
-                }
-            }
-            start_all.BackColor = Color.Empty;
-            StartBack.BackColor = Color.Red;
-            front_server.BackColor = Color.Red;
-            start_all.Text = "START";
-            front_server.Text = "STOP";
-            StartBack.Text = "STOP";
-            start_all.Enabled = true;
-            StartBack.Enabled = true;
-            front_server.Enabled = true;
-            // Terminar
         }
         private void StartBack_Click(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
-      
+
 
         private void front_server_Click(object sender, EventArgs e)
         {
@@ -86,6 +73,7 @@ namespace APPSTART
 
         }
 
+        // ------------------------ Integrated shell
         private void addShell(String txt) { addShell("INFO", txt); }
         private void addShell(String type, String txt) {
             shell.Text = "『" + getTime() + "』" + " [" + type + "] ► " + txt + " \n" + shell.Text;
@@ -100,42 +88,94 @@ namespace APPSTART
 
         }
 
-
-        private void ExecuteCommand(string command)
-        {
-            int exitCode;
-            ProcessStartInfo processInfo;
-            Process process;
-
-            processInfo = new ProcessStartInfo("cmd.exe", "/c " + command);
-            processInfo.CreateNoWindow = true;
-            processInfo.UseShellExecute = false;
-            // *** Redirect the output ***
-            processInfo.RedirectStandardError = true;
-            processInfo.RedirectStandardOutput = true;
-
-            process = Process.Start(processInfo);
-            process.WaitForExit();
-
-            // *** Read the streams ***
-            // Warning: This approach can lead to deadlocks, see Edit #2
-            string output = process.StandardOutput.ReadToEnd();
-            string error = process.StandardError.ReadToEnd();
-            String dta = ("output>>" + (String.IsNullOrEmpty(output) ? "(none)" : output));
-            
-            exitCode = process.ExitCode;
-            Console.WriteLine("output>>" + (String.IsNullOrEmpty(output) ? "(none)" : output));
-            Console.WriteLine("error>>" + (String.IsNullOrEmpty(error) ? "(none)" : error));
-            Console.WriteLine("ExitCode: " + exitCode.ToString(), "ExecuteCommand");
-            process.Close();
-
-        }
-
         private void goConfig_Click(object sender, EventArgs e)
         {
             CopnfigProperties c = new CopnfigProperties();
             c.ShowDialog();
         }
-    }
 
+        //-----------------------INSTALL SECCTION -----------------------
+
+        private void auto_install_Click(object sender, EventArgs e)
+        {
+            if (!testNode()) {
+                addShell("", "Descargando version de node");
+
+            }
+        }
+        private void test_node_Click(object sender, EventArgs e)
+        {
+            testNode();
+        }
+
+        private String nodeVersion = "v18.12.0";
+        private String node64 = "https://nodejs.org/dist/v18.12.0/node-v18.12.0-x64.msi";
+        private String node86 = "https://nodejs.org/dist/v18.12.0/node-v18.12.0-x86.msi";
+        private void download(String urlDownlad, String name) {
+
+            {
+                //string url = "https://www.example.com/archivo.zip"; // URL del archivo a descargar
+                string destino = @".down/"; // Ruta de destino para guardar el archivo descargado
+
+                WebClient webClient = new WebClient();
+
+                try
+                {
+                    webClient.DownloadFile(urlDownlad, destino);
+                    Console.WriteLine("Descarga completada.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al descargar el archivo: " + ex.Message);
+                }
+            }
+        }
+
+        private Boolean test64_86(){
+
+            return true;
+        }
+
+        private Boolean testNode() {
+            // Ejecutar el comando "node --version" en el símbolo del sistema
+            string output = RunCommand("node --version");
+            if (!string.IsNullOrEmpty(output))
+            {
+                addShell("", "Node.js está instalado.");
+                addShell("", "Versión: " + output);
+                if (output.Equals(this.nodeVersion)) {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                
+            }
+            else
+            {
+                addShell("", "Node.js no está instalado.");
+                return false;
+            }
+        }
+
+
+        static string RunCommand(string command)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "cmd.exe";
+            process.StartInfo.Arguments = "/c " + command;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.UseShellExecute = false;
+            process.StartInfo.CreateNoWindow = true;
+
+            process.Start();
+            string output = process.StandardOutput.ReadToEnd().Trim();
+            process.WaitForExit();
+
+            return output;
+        }
+
+        
+    }
 }
