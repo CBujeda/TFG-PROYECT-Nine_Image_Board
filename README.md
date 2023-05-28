@@ -4,7 +4,7 @@
 <img src="assets/20230203_172532_Logo.png" width="200" height="200" /><br>
 </a>
 
-> [EN DESARROLLO]
+> [v0.1.1]
 
 ## Requisitos Minimos:
 
