@@ -19,9 +19,9 @@
 ## Uso e Instalación
 
 * En Windows
-  * > Lanzador Grafico    - APPSTART.exe                   - EN DESARROLLO
+  * > Lanzador Grafico    - APPSTART.exe                   -  ☑️
     >
-  * > Lanzador de Consola - Start Auto.bat                 - RECOMENDABLE
+  * > Lanzador de Consola - Start Auto.bat                 -  ☑️
     >
 * En Linux
   * Pendiente
@@ -30,7 +30,6 @@
 <a href="https://youtu.be/7KrkzgEfUC0">
 <img src="assets/20230524_135702_instalation-es.png" width="280" height="200" /><br>
 </a>
-
 
 ## Configuracion
 
